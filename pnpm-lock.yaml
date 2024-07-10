@@ -115,6 +115,23 @@ importers:
         specifier: ^1.6.5
         version: 1.6.5(typescript@5.0.4)
 
+  packages/ccui/build:
+    dependencies:
+      vitepress-theme-demoblock:
+        specifier: ^2.0.2
+        version: 2.0.2(@algolia/client-search@4.17.0)(@types/node@20.1.4)(sass@1.62.1)
+      vue:
+        specifier: ^3.3.2
+        version: 3.3.2
+
+  packages/ccui/build/card: {}
+
+  packages/ccui/build/icon: {}
+
+  packages/ccui/build/notification: {}
+
+  packages/ccui/build/upload: {}
+
   packages/cli:
     dependencies:
       lodash:
@@ -169,6 +186,9 @@ importers:
       shelljs:
         specifier: ^0.8.5
         version: 0.8.5
+      typescript:
+        specifier: ^5.0.4
+        version: 5.0.4
       vite:
         specifier: ^4.3.5
         version: 4.3.5(@types/node@20.1.4)(sass@1.62.1)

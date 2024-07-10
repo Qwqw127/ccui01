@@ -1,8 +1,8 @@
 {
-  "name": "vue3-ccui",
+  "name": "vue3-ccui01",
   "version": "1.2.2",
   "license": "MIT",
-  "description": "vue3-ccui components based on Vite and Vue3",
+  "description": "vue3-ccui01 components based on Vite and Vue3",
   "keywords": [
     "frontend",
     "typescript",
@@ -13,7 +13,7 @@
     "vue3",
     "vite",
     "jsx",
-    "vue3-ccui"
+    "vue3-ccui01"
   ],
   "homepage": "https://vaebe.github.io/ccui/",
   "repository": {
@@ -26,6 +26,7 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "predev": "node ../cli/index.js create -t ccui --ignore-parse-error && node ../cli/index.js generate:theme",
+    "build:components:dts": "vue-tsc --declaration --emitDeclarationOnly",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
     "register:components": "vitepress-rc",

@@ -8,8 +8,8 @@ export default ({ mode }) => {
   return {
     base: basePath,
     lang: 'en-ZH',
-    title: 'vue3-ccui',
-    description: 'vue3-ccui 组件库',
+    title: 'vue3-ccui01',
+    description: 'vue3-ccui01 组件库',
     lastUpdated: true,
     ignoreDeadLinks: true, // 忽略死链接
     head: [
@@ -22,7 +22,7 @@ export default ({ mode }) => {
         'link',
         {
           rel: 'stylesheet',
-          href: 'https://unpkg.com/vue3-ccui/theme/darkTheme.css'
+          href: 'https://unpkg.com/vue3-ccui01/theme/darkTheme.css'
         }
       ]
     ],

@@ -3,13 +3,13 @@
 ### 安装
 ```shell
 # NPM
-$ npm install vue3-ccui --save
+$ npm install vue3-ccui01 --save
 
 # Yarn
-$ yarn add vue3-ccui
+$ yarn add vue3-ccui01
 
 # pnpm
-$ pnpm install vue3-ccui
+$ pnpm install vue3-ccui01
 ```
 
 ### 完整引入
@@ -18,8 +18,8 @@ import {createApp} from 'vue'
 import './style.css'
 import App from './App.vue'
 
-import ccui from 'vue3-ccui'
-import 'vue3-ccui/style.css'
+import ccui from 'vue3-ccui01'
+import 'vue3-ccui01/style.css'
 
 createApp(App).use(ccui).mount('#app')
 ```
