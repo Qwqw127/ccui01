@@ -1,0 +1,56 @@
+{
+  "name": "ccui-cli",
+  "version": "1.0.0",
+  "description": "ccui-cli",
+  "keywords": [
+    "cli"
+  ],
+  "author": "cjz",
+  "license": "MIT",
+  "main": "lib/ccui-cli.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib",
+    "types"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vaebe/ccui.git"
+  },
+  "scripts": {
+    "build": "pnpm generate:theme && node --max-old-space-size=4096 node_modules/vitepress/bin/vitepress.js build docs && cp public/* docs/.vitepress/dist/assets && cp docs/assets/* docs/.vitepress/dist/assets",
+    "build:lib": "pnpm --filter vue3-ccui predev -- prod && pnpm build:components && pnpm changelog && pnpm release",
+    "build:components": "node ./index.js build",
+    "generate:theme": "node ./index.js generate:theme",
+    "generate:dts": "node ./index.js generate:dts",
+    "release": "node ./index.js release",
+    "cli": "node ./index.js create",
+    "cli:create": "node ./index.js create -t component",
+    "prebuild": "node ./index.js create -t ccui --ignore-parse-error",
+    "changelog": "conventional-changelog -k '../ccui/package.json' -p angular -i CHANGELOG.md -s"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@babel/parser": "^7.21.8",
+    "@babel/traverse": "^7.21.5",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "chalk": "^4.1.2",
+    "commander": "^10.0.1",
+    "esbuild": "^0.17.19",
+    "esbuild-register": "^3.4.2",
+    "fs-extra": "^11.1.1",
+    "inquirer": "^8.2.5",
+    "kolorist": "^1.8.0",
+    "ora": "^5.4.1",
+    "rimraf": "^5.0.0",
+    "shelljs": "^0.8.5",
+    "vite": "^4.3.5",
+    "conventional-changelog-cli": "^2.2.2",
+    "sass": "^1.62.1"
+  }
+}

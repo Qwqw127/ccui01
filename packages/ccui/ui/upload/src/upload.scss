@@ -1,0 +1,212 @@
+@import '../../style-var/index.scss';
+
+.#{$cls-prefix}-input-group {
+  position: relative;
+  display: flex !important;
+  align-items: center;
+  width: 360px;
+  border-collapse: separate;
+}
+
+.#{$cls-prefix}-input-group:not(.disabled):hover
+  .#{$cls-prefix}-input-group-addon {
+  font-weight: bold;
+  background-color: $ccui-dividing-line;
+  border-color: $ccui-form-control-line-active;
+}
+
+.#{$cls-prefix}-input-group:not(.disabled):hover .#{$cls-prefix}-form-control {
+  border-color: $ccui-form-control-line-active;
+  border-right-color: $ccui-form-control-line;
+}
+
+.#{$cls-prefix}-input-group:not(.disabled)
+  .#{$cls-prefix}-input-group-addon:active {
+  background-color: $ccui-dividing-line;
+  border-color: $ccui-form-control-line-active;
+  border-right-color: $ccui-form-control-line;
+}
+
+.#{$cls-prefix}-input-group .#{$cls-prefix}-input-group-addon {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: normal;
+  justify-content: center;
+  width: 36px;
+  font-size: $ccui-font-size-icon;
+  font-weight: normal;
+  color: $ccui-text;
+  white-space: nowrap;
+  cursor: pointer;
+  background-color: $ccui-area;
+  border: 1px solid $ccui-form-control-line;
+  border-radius: 0 $ccui-border-radius $ccui-border-radius 0;
+  transition: border-color $ccui-animation-duration-slow
+      $ccui-animation-ease-in-out-smooth,
+    background-color $ccui-animation-duration-slow
+      $ccui-animation-ease-in-out-smooth;
+}
+
+.#{$cls-prefix}-input-group .#{$cls-prefix}-form-control {
+  display: block;
+  width: 100%;
+  padding: 4px 8px;
+  font-size: $ccui-font-size;
+  line-height: 32px;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid $ccui-form-control-line;
+  border-right: none;
+  border-radius: $ccui-border-radius 0 0 $ccui-border-radius;
+  transition: border-color $ccui-animation-duration-slow
+      $ccui-animation-ease-in-out-smooth,
+    box-shadow $ccui-animation-duration-slow $ccui-animation-ease-in-out-smooth;
+
+  &.#{$cls-prefix}-upload__files-list {
+    max-width: 100%;
+    max-height: 52px;
+    padding: 0 3px;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    .#{$cls-prefix}-upload__file-item {
+      height: 26px;
+      padding: 0 48px 0 12px;
+      margin-right: 2px;
+      line-height: 26px;
+    }
+
+    .#{$cls-prefix}-upload__file-tag {
+      position: relative;
+      max-width: 100%;
+      background-color: $ccui-label-bg;
+      border-radius: $ccui-border-radius;
+
+      .#{$cls-prefix}-upload__filename {
+        display: inline-block;
+        max-width: 100%;
+        height: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        vertical-align: middle;
+      }
+
+      .icon {
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        cursor: pointer;
+        transform: translateY(-50%);
+
+        &.icon-right {
+          color: $ccui-success;
+        }
+
+        &.icon-running {
+          font-size: 16px;
+        }
+
+        &.#{$cls-prefix}-upload__delete-file-button {
+          margin-right: 20px;
+        }
+
+        &.#{$cls-prefix}-upload__delete {
+          display: none;
+        }
+      }
+
+      &:hover {
+        .#{$cls-prefix}-upload__progress,
+        .icon-right {
+          display: none;
+        }
+
+        .icon-close {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+.#{$cls-prefix}-input-group {
+  &.disabled {
+    .#{$cls-prefix}-upload__placeholder {
+      color: $ccui-disabled-text;
+    }
+  }
+
+  .#{$cls-prefix}-upload__placeholder {
+    max-width: 100%;
+    max-height: 32px;
+    overflow: hidden;
+    line-height: 22px;
+    color: $ccui-placeholder;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.#{$cls-prefix}-input-group .#{$cls-prefix}-upload__progress {
+  width: 16px;
+  height: 16px;
+}
+
+.#{$cls-prefix}-input-group.disabled .#{$cls-prefix}-form-control,
+.#{$cls-prefix}-input-group.disabled .#{$cls-prefix}-input-group-addon {
+  color: $ccui-disabled-text;
+  cursor: not-allowed;
+  background-color: $ccui-disabled-bg;
+  border-color: $ccui-disabled-line;
+}
+
+.#{$cls-prefix}-form-control {
+  outline: none;
+}
+
+.#{$cls-prefix}-input-group.disabled
+  .#{$cls-prefix}-upload__delete-file-button {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.#{$cls-prefix}-loading {
+  color: $ccui-aide-text;
+}
+
+.#{$cls-prefix}-upload--failed-color {
+  color: $ccui-danger;
+}
+
+.#{$cls-prefix}-upload {
+  display: flex;
+}
+
+.#{$cls-prefix}-upload-tip {
+  height: 18px;
+  margin-top: 8px;
+  font-size: 12px;
+
+  .icon {
+    margin-right: 8px;
+    font-size: 16px;
+    vertical-align: middle;
+  }
+
+  .icon-right-o {
+    color: $ccui-success;
+  }
+
+  .#{$cls-prefix}-upload-failed {
+    color: $ccui-danger;
+  }
+
+  a {
+    color: $ccui-link;
+    cursor: pointer;
+  }
+}

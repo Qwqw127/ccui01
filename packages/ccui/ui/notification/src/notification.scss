@@ -1,0 +1,131 @@
+@import '../../style-var/index.scss';
+
+.#{$cls-prefix}-notification {
+  position: fixed;
+  top: 50px;
+  right: 20px;
+  z-index: $ccui-z-index-pop-up;
+  width: 20em;
+  word-break: normal;
+  word-wrap: break-word;
+
+  a {
+    &:link,
+    &:visited {
+      color: $ccui-link-light;
+    }
+
+    &:hover,
+    &:active {
+      color: $ccui-link-light-active;
+    }
+  }
+}
+
+.#{$cls-prefix}-notification-item-container {
+  position: relative;
+  margin: 0 0 8px 0;
+  color: $ccui-feedback-overlay-text;
+  background-color: $ccui-feedback-overlay-bg;
+  filter: alpha(opacity=95);
+  border-radius: $ccui-border-radius-feedback;
+  box-shadow: $ccui-shadow-length-feedback-overlay $ccui-shadow;
+  opacity: 0.95;
+}
+
+.#{$cls-prefix}-notification__item {
+  position: relative;
+  display: block;
+  padding: 12px 16px;
+}
+
+.#{$cls-prefix}-notification__icon-close {
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  cursor: pointer;
+
+  & i.icon {
+    color: $ccui-light-text !important;
+  }
+}
+
+.#{$cls-prefix}-notification__title {
+  display: block;
+  padding: 0 0 calc(0.5em - 2px) 0;
+  font-size: $ccui-font-size-card-title;
+  font-weight: 700;
+}
+
+.#{$cls-prefix}-notification__image {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  line-height: 1;
+  border-radius: 50%;
+
+  &.#{$cls-prefix}-notification__image--warning {
+    path.#{$cls-prefix}-notification__warning-outer {
+      fill: $ccui-warning-line;
+    }
+
+    path.#{$cls-prefix}-notification__warning-inner {
+      fill: $ccui-light-text;
+      stroke: $ccui-light-text;
+    }
+  }
+
+  &.#{$cls-prefix}-notification__image--info {
+    background-color: $ccui-info;
+  }
+
+  &.#{$cls-prefix}-notification__image--error {
+    background-color: $ccui-danger;
+  }
+
+  &.#{$cls-prefix}-notification__image--success {
+    background-color: $ccui-success;
+  }
+
+  .#{$cls-prefix}-notification__image-info-path,
+  .#{$cls-prefix}-notification__image-error-path,
+  .#{$cls-prefix}-notification__image-success-path {
+    fill: $ccui-light-text;
+  }
+}
+
+.#{$cls-prefix}-notification__message {
+  margin-left: 20px;
+
+  .#{$cls-prefix}-notification__content {
+    margin-top: 4px;
+    font-size: $ccui-font-size;
+  }
+}
+
+.#{$cls-prefix}-notification-message-common
+  .#{$cls-prefix}-notification__message {
+  margin-left: 0;
+}
+
+.#{$cls-prefix}-notification__message p {
+  margin-top: 4px;
+  font-size: $ccui-font-size;
+}
+
+.notification-fade {
+  &-enter-active,
+  &-leave-active {
+    transition: transform $ccui-animation-duration-slow
+      $ccui-animation-ease-in-out;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    transform: translateX(100%);
+  }
+}

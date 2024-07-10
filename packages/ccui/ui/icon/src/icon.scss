@@ -1,0 +1,115 @@
+@import '../../style-var/index.scss';
+
+$ccui-icon-background-hover: var(
+  --devui-icon-background-hover,
+  $ccui-list-item-hover-bg
+);
+$ccui-icon-background-active: var(
+  --devui-icon-background-active,
+  $ccui-list-item-active-bg
+);
+
+.#{$cls-prefix}-icon {
+  &__container {
+    display: inline-block;
+    color: $ccui-icon-fill;
+
+    & > *:not(:last-child) {
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    i {
+      vertical-align: middle;
+      transition: all $ccui-animation-duration-slow
+        $ccui-animation-ease-in-out-smooth;
+    }
+  }
+
+  &--no-slots {
+    i {
+      display: block;
+    }
+
+    img {
+      display: block;
+    }
+  }
+
+  &--disabled {
+    color: $ccui-disabled-text;
+    cursor: not-allowed;
+
+    i {
+      color: $ccui-disabled-text;
+    }
+  }
+
+  &--operable {
+    &:not(.#{$cls-prefix}-icon--disabled) {
+      cursor: pointer;
+      transition: color $ccui-animation-duration-slow
+        $ccui-animation-ease-in-out-smooth;
+
+      i {
+        cursor: pointer;
+      }
+    }
+
+    &:hover:not(.#{$cls-prefix}-icon--disabled) {
+      color: $ccui-icon-fill-hover;
+
+      &.#{$cls-prefix}-icon__container {
+        background-color: $ccui-icon-background-hover;
+      }
+
+      i {
+        color: $ccui-icon-fill-hover;
+      }
+    }
+
+    &:active:not(.#{$cls-prefix}-icon--disabled) {
+      color: var(--devui-icon-active-color, $ccui-icon-fill-active);
+
+      &.#{$cls-prefix}-icon__container {
+        background-color: $ccui-icon-background-active;
+      }
+
+      i {
+        color: var(--devui-icon-active-color, $ccui-icon-fill-active);
+      }
+    }
+
+    &.#{$cls-prefix}-icon__container {
+      height: 32px;
+      padding: 0 8px;
+      margin-left: -8px;
+      line-height: 32px;
+      border-radius: $ccui-border-radius;
+      transition: all $ccui-animation-duration-slow
+        $ccui-animation-ease-in-out-smooth;
+    }
+  }
+
+  &--spin {
+    animation: iconSpin 2.5s linear infinite;
+  }
+}
+
+.#{$cls-prefix}-svg-icon {
+  vertical-align: middle;
+}
+
+@keyframes iconSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
