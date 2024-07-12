@@ -1,11 +1,11 @@
 @import '../../style-var/index.scss';
 
 $ccui-icon-background-hover: var(
-  --devui-icon-background-hover,
+  --ccui-icon-background-hover,
   $ccui-list-item-hover-bg
 );
 $ccui-icon-background-active: var(
-  --devui-icon-background-active,
+  --ccui-icon-background-active,
   $ccui-list-item-active-bg
 );
 
@@ -69,14 +69,14 @@ $ccui-icon-background-active: var(
     }
 
     &:active:not(.#{$cls-prefix}-icon--disabled) {
-      color: var(--devui-icon-active-color, $ccui-icon-fill-active);
+      color: var(--ccui-icon-active-color, $ccui-icon-fill-active);
 
       &.#{$cls-prefix}-icon__container {
         background-color: $ccui-icon-background-active;
       }
 
       i {
-        color: var(--devui-icon-active-color, $ccui-icon-fill-active);
+        color: var(--ccui-icon-active-color, $ccui-icon-fill-active);
       }
     }
 

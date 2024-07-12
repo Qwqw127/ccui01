@@ -6,8 +6,8 @@ export function useNotification(props: NotificationProps): {
   classes: ComputedRef<Record<string, boolean>>;
 } {
   const classes = computed(() => ({
-    'devui-notification-item-container': true,
-    [`devui-notification-message-${props.type}`]: true
+    'ccui-notification-item-container': true,
+    [`ccui-notification-message-${props.type}`]: true
   }));
 
   return { classes };

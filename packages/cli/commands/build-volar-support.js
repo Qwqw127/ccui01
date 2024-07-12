@@ -24,6 +24,7 @@ exports.volarSupport = (replaceIdentifier, readyToReleaseComponentName) => {
   const componentPath = readyToReleaseComponentName.map((name) =>
     path.resolve('../ccui/ui', name, 'index.ts')
   );
+  debugger;
   const tree = useRelationTree(componentPath);
   tree.forEachChild((foldNode) => {
     foldNode.forEachChild((node) => {
@@ -55,6 +56,8 @@ exports.volarSupport = (replaceIdentifier, readyToReleaseComponentName) => {
       }
     });
   });
+
+  console.log(componentDTSItem,'componentDTSItem=================');
   const template = `
 ${buildGlobalDTSStart()}
 ${buildComponents(componentDTSItem.join('\n'))}

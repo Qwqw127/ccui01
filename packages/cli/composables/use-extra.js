@@ -25,23 +25,16 @@ function extraDirective(code) {
 }
 
 function extraGlobalProperties(code) {
-  const globalPropertiesReg =
-    /app\.config\.globalProperties\.(?<serviceName>\$.*) = (?<serviceFileName>.*);/;
-  const provideReg =
-    /app\.provide\((?<serviceName>.*)\..*, ?new? ?(?<instanceName>.*)\((?<param>.*)\);/gm;
-  const groups =
-    globalPropertiesReg.exec(code)?.groups || provideReg.exec(code);
+  const globalPropertiesReg = /app\.config\.globalProperties\.(?<serviceName>\$.*) = (?<serviceFileName>.*);/;
+  const provideReg = /app\.provide\((?<serviceName>.*)\..*, ?new? ?(?<instanceName>.*)\((?<param>.*)\);/gm;
+  const groups = globalPropertiesReg.exec(code)?.groups || provideReg.exec(code);
   if (groups?.serviceName) {
     return groups.serviceName;
   }
 }
 
 function extraValue(code) {
-  return (
-    extraComponentName(code) ??
-    extraDirective(code) ??
-    extraGlobalProperties(code)
-  );
+  return extraComponentName(code) ?? extraDirective(code) ?? extraGlobalProperties(code);
 }
 /**
  *
@@ -52,15 +45,9 @@ function extraType(code) {
   const isComponent = /app\.component/.test(code);
   const isGlobalProperties = /app\.config\.globalProperties/.test(code);
   const isProvide = /app\.provide/.test(code);
-  if (isDirective) {
-    return 'directive';
-  }
-  if (isComponent) {
-    return 'component';
-  }
-  if (isGlobalProperties || isProvide) {
-    return 'service';
-  }
+  if (isDirective) { return 'directive'; }
+  if (isComponent) { return 'component'; }
+  if (isGlobalProperties || isProvide) { return 'service'; }
 }
 
 exports.extra = extraValue;

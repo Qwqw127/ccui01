@@ -3,7 +3,7 @@ import markdown from './markdown';
 import sidebar from './sidebar';
 
 export default ({ mode }) => {
-  const basePath = mode === 'development' ? '/' : '/ccui/';
+  const basePath = mode === 'development' ? '/' : '/ccui01/';
 
   return {
     base: basePath,
@@ -37,7 +37,7 @@ export default ({ mode }) => {
         indexName: 'ccui'
       },
       socialLinks: [
-        { icon: 'github', link: 'https://github.com/vaebe/ccui.git' }
+        { icon: 'github', link: 'https://github.com/Qwqw127/ccui01' }
       ],
       outlineTitle: '快速前往',
       footer: {

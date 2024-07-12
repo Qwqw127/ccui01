@@ -127,17 +127,10 @@ exports.useRelationTree = function (componentPaths) {
         let componentTreeNode;
         properties.forEach((property) => {
           if (ts.isPropertyAssignment(property)) {
-            const Identifier = property
-              .getChildAt(0, sourceFile)
-              .getText(sourceFile);
-            const value = property
-              .getChildAt(2, sourceFile)
-              .getText(sourceFile);
+            const Identifier = property.getChildAt(0, sourceFile).getText(sourceFile);
+            const value = property.getChildAt(2, sourceFile).getText(sourceFile);
             if (Identifier === 'title') {
-              componentTreeNode = new componentNode(
-                value.split(' ')[0].slice(1),
-                true
-              );
+              componentTreeNode = new componentNode(value.split(' ')[0].slice(1), true);
             }
           } else {
             /** @type {ts.MethodDeclaration} */

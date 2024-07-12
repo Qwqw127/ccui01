@@ -1,6 +1,5 @@
 {
   "name": "root",
-  "private": true,
   "scripts": {
     "dev": "pnpm --filter vue3-ccui01 dev",
     "docs:build": "pnpm --filter vue3-ccui01 predev -- prod && pnpm --filter vue3-ccui01 docs:build",

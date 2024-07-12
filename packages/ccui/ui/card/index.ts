@@ -1,20 +1,16 @@
 import type { App } from 'vue';
 import Card from './src/card';
 
-// 作为插件引入
-Card.install = function (app: App): void {
-  app.component(Card.name as string, Card);
-};
+export * from './src/card-types';
 
-// 按需
 export { Card };
 
-// 内部统一注册
 export default {
   title: 'Card 卡片',
   category: '数据展示',
   status: '100%',
   install(app: App): void {
-    app.component(Card.name as string, Card);
+    // 设置了 as string 就不会被判断为组件了，或者将tsconf strict设置为false
+    app.component(Card.name, Card);
   }
 };

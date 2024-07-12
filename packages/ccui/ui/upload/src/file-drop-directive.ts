@@ -7,13 +7,17 @@ interface BindingType {
   };
 }
 
-const getTransfer = (event: DragEvent): DataTransfer => {
+const getTransfer = (
+  event: DragEvent & { originalEvent?: any }
+): DataTransfer => {
   return event.dataTransfer
     ? event.dataTransfer
     : event.originalEvent?.dataTransfer;
 };
 
-const haveFiles = (types?: readonly string[]) => {
+const haveFiles = (
+  types?: readonly string[] & { contains: (name: string) => boolean }
+) => {
   if (!types) {
     return false;
   }
@@ -35,7 +39,7 @@ const onDragOver = (el: HTMLElement, binding: BindingType) => {
   const { onFileOver } = binding.value;
   el.addEventListener('dragover', (event) => {
     const transfer = getTransfer(event);
-    if (!haveFiles(transfer.types)) {
+    if (!haveFiles(transfer.types as any)) {
       return;
     }
     preventAndStop(event);

@@ -4,17 +4,17 @@ export{}
 declare module '@vue/runtime-core' {`;
 };
 exports.buildComponentItem = (componentName, key = '') => {
-  return `D${componentName}: typeof import('./types/vue-devui')['${
+  return `D${componentName}: typeof import('./types/vue-ccui')['${
     key || componentName
   }']`;
 };
 exports.buildDirectiveItem = (directive, key = '') => {
-  return `v${directive}?: typeof import('./types/vue-devui')['${
+  return `v${directive}?: typeof import('./types/vue-ccui')['${
     key || directive
   }']`;
 };
 exports.buildServiceItem = (service, key = '') => {
-  return `$${service}?: typeof import('./types/vue-devui')['${
+  return `$${service}?: typeof import('./types/vue-ccui')['${
     key || service
   }']`;
 };

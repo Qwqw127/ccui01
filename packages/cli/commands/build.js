@@ -95,10 +95,12 @@ exports.build = async () => {
 
   const components = fs.readdirSync(entryDir).filter((name) => {
     const componentDir = path.resolve(entryDir, name);
+    console.log(componentDir,name,'==========1=====');
     const isDir = fs.lstatSync(componentDir).isDirectory();
     return isDir && fs.readdirSync(componentDir).includes('index.ts');
   });
 
+  console.log(components,'=======components=========');
   for (const name of components) {
     if (!isReadyToRelease(name)) {
       continue;
@@ -121,12 +123,15 @@ exports.build = async () => {
 
   // 生成global.d.ts
   try {
+    // 生成  types文件
     execSync(`pnpm run build:components:dts`);
   } catch {
     console.log('error');
   }
+  // 支持nuxt
   nuxtBuild.createNuxtPlugin();
   logger.success('准备生成global.d.ts');
+  // 生成global.d.ts
   const volarSupportbuildState = volarSupport(
     replaceIdentifier,
     readyToReleaseComponentName
@@ -134,8 +139,8 @@ exports.build = async () => {
   fs.writeFileSync(
     '../ccui/build/index.d.ts',
     `
-  export * from './types/vue-devui';
-  import _default from './types/vue-devui';
+  export * from './types/vue-ccui';
+  import _default from './types/vue-ccui';
   export default _default;
   `
   );

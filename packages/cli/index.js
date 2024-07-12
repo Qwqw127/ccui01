@@ -3,7 +3,7 @@ const { Command, Option } = require('commander');
 const { create, validateCreateType } = require('./commands/create');
 const { build } = require('./commands/build');
 const { generateTheme } = require('./commands/generate-theme');
-const { generateDts } = require('./commands/generate-dts');
+// const { generateDts } = require('./commands/generate-dts');
 const { release } = require('./commands/release');
 const { codeCheck } = require('./commands/code-check');
 const { VERSION, CREATE_SUPPORT_TYPES } = require('./shared/constant');
@@ -28,7 +28,7 @@ program
   .command('build')
   .description('打包组件库')
   .hook('postAction', generateTheme)
-  .hook('postAction', generateDts)
+  // .hook('postAction', generateDts) // 通过vue-tsc实现
   .action(build);
 
 program
@@ -39,7 +39,7 @@ program
 program
   .command('generate:dts')
   .description('生成ts类型文件')
-  .action(generateDts);
+  // .action(generateDts);
 
 program
   .command('release')

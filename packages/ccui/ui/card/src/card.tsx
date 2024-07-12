@@ -1,32 +1,37 @@
-import { defineComponent, computed } from 'vue';
-import { cardProps, CardProps } from './card-types';
-import './card.scss';
+import { computed, defineComponent, toRefs } from 'vue';
+import { CardProps, cardProps } from './card-types';
 import { useNamespace } from '../../shared/hooks/use-namespace';
+import './card.scss';
 
 export default defineComponent({
-  name: 'CCard',
+  name: 'DCard',
   props: cardProps,
   setup(props: CardProps, { slots }) {
+    const { align, src } = toRefs(props);
     const ns = useNamespace('card');
-
-    // ccui-card ccui-card__nse ccui-card--nsm ccui-card__em--open
-    console.log(ns.b(), ns.e('nse'), ns.m('nsm'), ns.em('em', 'open'));
-
-    const boxClass = `${ns.b()} ${ns.m(props.shadow)}-shadow`;
-
-    const isHeader = computed(() => {
-      return props.header || slots.header;
+    const alignClass = computed(() => {
+      return {
+        [ns.e('actions')]: true,
+        [ns.em('actions', `align-${align.value}`)]: align.value !== 'start',
+      };
     });
 
     return () => (
-      <div class={boxClass}>
-        <div class={ns.m('header')} v-show={isHeader}>
-          {(slots.header && slots.header()) || props.header}
-        </div>
-        <div class={ns.m('body')} style={props.bodyStyle}>
-          {slots.default && slots.default()}
-        </div>
+      <div class={['card-container', ns.b(), ns.em('shadow', props.shadow)]}>
+        {slots.default?.()}
+        {(slots.avatar || slots.title || slots.subtitle) && (
+          <div class={ns.e('header')}>
+            {slots.avatar?.() ? <div class={ns.e('avatar')}>{slots.avatar?.()}</div> : ''}
+            <div>
+              <div class={ns.e('title')}>{slots.title?.()}</div>
+              <div class={ns.e('subtitle')}>{slots.subtitle?.()}</div>
+            </div>
+          </div>
+        )}
+        {src.value !== '' ? <img src={src.value} alt="" class={ns.e('meta')} /> : ''}
+        {slots.content && <div class={ns.e('content')}>{slots.content?.()}</div>}
+        {slots.actions && <div class={alignClass.value}>{slots.actions ? slots.actions?.() : ''}</div>}
       </div>
     );
-  }
+  },
 });
