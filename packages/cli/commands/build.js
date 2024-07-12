@@ -95,12 +95,12 @@ exports.build = async () => {
 
   const components = fs.readdirSync(entryDir).filter((name) => {
     const componentDir = path.resolve(entryDir, name);
-    console.log(componentDir,name,'==========1=====');
+    console.log(componentDir, name, '==========1=====');
     const isDir = fs.lstatSync(componentDir).isDirectory();
     return isDir && fs.readdirSync(componentDir).includes('index.ts');
   });
 
-  console.log(components,'=======components=========');
+  console.log(components, '=======components=========');
   for (const name of components) {
     if (!isReadyToRelease(name)) {
       continue;

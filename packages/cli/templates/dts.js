@@ -14,9 +14,7 @@ exports.buildDirectiveItem = (directive, key = '') => {
   }']`;
 };
 exports.buildServiceItem = (service, key = '') => {
-  return `$${service}?: typeof import('./types/vue-ccui')['${
-    key || service
-  }']`;
+  return `$${service}?: typeof import('./types/vue-ccui')['${key || service}']`;
 };
 exports.buildGlobalDTSEnd = () => {
   return `

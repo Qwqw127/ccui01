@@ -36,10 +36,8 @@ program
   .description('生成主题变量文件')
   .action(generateTheme);
 
-program
-  .command('generate:dts')
-  .description('生成ts类型文件')
-  // .action(generateDts);
+program.command('generate:dts').description('生成ts类型文件');
+// .action(generateDts);
 
 program
   .command('release')
