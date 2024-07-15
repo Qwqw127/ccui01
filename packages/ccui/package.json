@@ -25,6 +25,7 @@
   "style": "style.css",
   "scripts": {
     "dev": "vitepress dev docs",
+    "dev:site": "vite --port 3011",
     "predev": "node ../cli/index.js create -t ccui --ignore-parse-error && node ../cli/index.js generate:theme",
     "build:components:dts": "vue-tsc --declaration --emitDeclarationOnly",
     "docs:build": "vitepress build docs",
@@ -35,7 +36,7 @@
   },
   "dependencies": {
     "vitepress-theme-demoblock": "^2.0.2",
-    "vue": "^3.3.2"
+    "vue": "^3.4.31"
   },
   "devDependencies": {
     "@types/node": "^20.1.4",

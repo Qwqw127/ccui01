@@ -277,6 +277,7 @@ exports.create = async (cwd) => {
         params.hasDirective = params.parts.includes('directive');
         params.hasService = params.parts.includes('service');
 
+        // 创建组件、模板文件
         await createComponent(params, cwd);
         break;
       case CREATE_SUPPORT_TYPE_MAP['ccui']:

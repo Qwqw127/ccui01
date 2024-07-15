@@ -1,9 +1,9 @@
 import type { App } from 'vue';
-import Upload from './src/upload';
+import DUpload from './src/upload';
 import fileDropDirective from './src/file-drop-directive';
 export * from './src/upload-types';
 
-export { Upload, fileDropDirective };
+export { DUpload, fileDropDirective };
 
 export default {
   title: 'Upload 上传',
@@ -11,6 +11,6 @@ export default {
   status: '100%',
   install(app: App): void {
     app.directive('file-drop', fileDropDirective);
-    app.component(Upload.name, Upload);
+    app.component(DUpload.name, DUpload);
   }
 };

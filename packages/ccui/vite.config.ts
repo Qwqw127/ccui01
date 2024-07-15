@@ -18,5 +18,11 @@ export default defineConfig({
     transformMode: {
       web: [/.[tj]sx$/]
     }
+  },
+  server: {
+    open: '/site.html',
+    fs: {
+      strict: false
+    }
   }
 });

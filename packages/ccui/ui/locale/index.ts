@@ -7,7 +7,7 @@ let langMessages = reactive({
   [lang.value]: zhCN
 });
 
-const Locale = {
+const DLocale = {
   messages(): Record<string, unknown> {
     return langMessages[lang.value];
   },
@@ -26,10 +26,10 @@ const Locale = {
   }
 };
 
-export { Locale };
+export { DLocale };
 
 export default {
   install(app: App): void {
-    app.config.globalProperties.langMessages = ref(Locale.messages());
+    app.config.globalProperties.langMessages = ref(DLocale.messages());
   }
 };

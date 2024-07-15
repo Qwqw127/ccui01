@@ -1,4 +1,4 @@
-import { Locale } from '.';
+import { DLocale } from '.';
 
 const camelize = (name: string) =>
   name.substring(1).replace(/^\S/, (s: string) => s.toLocaleLowerCase());
@@ -19,7 +19,7 @@ export function createI18nTranslate(name: string, app, newPrefix?: string) {
   return (path: string): any => {
     const messages =
       app?.appContext.config.globalProperties.langMessages?.value ||
-      Locale.messages();
+      DLocale.messages();
     const message = get(messages, prefix + path) || get(messages, path);
     return message;
   };
