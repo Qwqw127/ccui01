@@ -104,6 +104,12 @@ export default {
   'font-title-weight': 'bold',
   'font-content-weight': 'normal',
   'line-height-base': '1.5',
+
+  // 组件的size
+  'size-sm': '24px',
+  'size-md': '32px',
+  'size-lg': '40px',
+  'contrast-disabled': 'red',
   // 圆角
   'border-radius': '2px',
   'border-radius-feedback': '4px',

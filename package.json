@@ -7,7 +7,7 @@
     "lint:script": "eslint --ext \"packages/**/*.{vue,js,jsx,ts,tsx}\" --fix --quiet ./",
     "lint:style": "stylelint --fix \"packages/**/*.{css,scss}\"",
     "postinstall": "husky install",
-    "build:lib":"pnpm --filter ccui-cli build:lib"
+    "build:lib":"pnpm --filter vue3-ccui01 build:lib"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",

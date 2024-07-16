@@ -1,0 +1,36 @@
+@import '../../style-var/index.scss';
+
+.#{$cls-prefix}-button-group {
+  display: flex;
+
+  & > * {
+    position: relative;
+
+    &:not(:first-child),
+    &:not(:first-child) .#{$cls-prefix}-button {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      margin-left: -1px;
+
+      &.#{$cls-prefix}-button--solid--primary {
+        border-left: 1px solid $ccui-brand-hover;
+        margin-left: 0;
+      }
+    }
+
+    &:not(:last-child),
+    &:not(:last-child) .#{$cls-prefix}-button {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:hover,
+    &:active {
+      z-index: 1;
+    }
+
+    &:focus-within {
+      z-index: 1;
+    }
+  }
+}

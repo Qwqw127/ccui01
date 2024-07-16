@@ -1,0 +1,438 @@
+@import '../../style-var/index.scss';
+
+
+$ccui-btn-padding: var(--devui-btn-padding, 0 20px);
+$ccui-btn-common-bg: var(--devui-btn-common-bg, $ccui-base-bg);
+$ccui-btn-common-bg-hover: var(--devui-btn-common-bg-hover, $ccui-base-bg);
+$ccui-btn-common-bg-active: var(--devui-btn-common-bg-active, $ccui-base-bg);
+$ccui-btn-common-color-hover: var(--devui-btn-common-color-hover, $ccui-brand-active);
+$ccui-btn-common-color-active: var(--devui-btn-common-color-active, $ccui-brand-active);
+$ccui-btn-common-border-color: var(--devui-btn-common-border-color, $ccui-line);
+$ccui-btn-common-border-color-hover: var(--devui-btn-common-border-color-hover, $ccui-form-control-line-active);
+$ccui-btn-common-border-color-active: var(--devui-btn-common-border-color-active, $ccui-form-control-line-active);
+$ccui-btn-sm-padding: var(--devui-btn-sm-padding, 0 16px);
+$ccui-btn-lg-padding: var(--devui-btn-lg-padding, 0 24px);
+
+@mixin btn-solid-style {
+  color: $ccui-brand-active;
+  border-color: $ccui-form-control-line-active;
+}
+
+.#{$cls-prefix}-button {
+  position: relative;
+  padding: $ccui-btn-padding;
+  font-size: $ccui-font-size-md;
+  height: $ccui-size-md;
+  line-height: $ccui-line-height-base;
+  border-radius: $ccui-border-radius;
+  border-width: 1px;
+  border-color: transparent;
+  background-color: transparent;
+  overflow: hidden;
+
+  &.mousedown:not(:disabled) {
+    transform: scale(0.95);
+  }
+
+  .water-wave {
+    position: absolute;
+    background-color: $ccui-base-bg;
+    border-radius: 50%;
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%, -50%);
+    animation: waterWave $ccui-animation-duration-slow $ccui-animation-linear;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &--is-loading {
+    pointer-events: none;
+  }
+
+  &--solid {
+    color: $ccui-light-text;
+    min-width: 64px;
+
+    i {
+      color: $ccui-light-text;
+    }
+
+    &--secondary {
+      color: $ccui-text;
+      border-color: $ccui-btn-common-border-color;
+      background-color: $ccui-btn-common-bg;
+
+      &:hover {
+        color: $ccui-btn-common-color-hover;
+        border-color: $ccui-btn-common-border-color-hover;
+        background-color: $ccui-btn-common-bg-hover;
+      }
+
+      &:focus {
+        color: $ccui-btn-common-color-active;
+        border-color: $ccui-btn-common-border-color-active;
+        background-color: $ccui-btn-common-bg-hover;
+      }
+
+      &:active {
+        color: $ccui-btn-common-color-active;
+        border-color: $ccui-btn-common-border-color-active;
+        background-color: $ccui-btn-common-bg-hover;
+      }
+
+      &:disabled {
+        opacity: 0.8;
+      }
+    }
+
+    &--primary {
+      background-color: $ccui-primary;
+
+      &:hover {
+        background-color: $ccui-primary-hover;
+      }
+
+      &:focus {
+        background-color: $ccui-primary-hover;
+      }
+
+      &:active {
+        background-color: $ccui-primary-active;
+      }
+
+      &:disabled {
+        color: $ccui-light-text;
+        background: $ccui-primary-disabled;
+        border: none;
+      }
+    }
+
+    &--danger {
+      background-color: $ccui-contrast;
+
+      &:hover {
+        background-color: $ccui-contrast-hover;
+      }
+
+      &:focus {
+        background-color: $ccui-contrast-hover;
+      }
+
+      &:active {
+        background-color: $ccui-contrast-active;
+      }
+
+      &:disabled {
+        background-color: $ccui-contrast-disabled;
+      }
+    }
+  }
+
+  &--outline {
+    background-color: $ccui-block;
+    border-style: solid;
+
+    i {
+      color: $ccui-text;
+    }
+
+    &--secondary {
+      color: $ccui-text;
+      border-color: $ccui-line;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: $ccui-brand-active;
+        border-color: $ccui-form-control-line-active;
+
+        i {
+          color: $ccui-brand-active;
+          border-color: $ccui-form-control-line-active;
+        }
+      }
+
+      &:disabled {
+        color: $ccui-disabled-text;
+        border-color: $ccui-disabled-line;
+        background-color: $ccui-disabled-bg;
+
+        i {
+          color: $ccui-disabled-text;
+        }
+      }
+    }
+
+    &--primary {
+      color: $ccui-brand-active;
+      border-color: $ccui-form-control-line-active;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: $ccui-brand-active-focus;
+        border-color: $ccui-form-control-line-active-hover;
+
+        i {
+          color: $ccui-brand-active-focus;
+          border-color: $ccui-form-control-line-active-hover;
+        }
+      }
+
+      &:disabled {
+        opacity: 0.8;
+        color: $ccui-brand-active;
+        border-color: $ccui-form-control-line-active;
+
+        i {
+          color: $ccui-brand-active;
+        }
+      }
+    }
+
+    &--danger {
+      color: $ccui-contrast;
+      border-color: $ccui-contrast;
+
+      i {
+        color: $ccui-contrast;
+      }
+
+      &:hover,
+      &:focus,
+      &:active,
+      &:disabled {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &--text {
+    padding: 0;
+
+    &--secondary {
+      color: $ccui-text;
+
+      &:hover {
+        color: $ccui-list-item-hover-text;
+      }
+
+      &:focus {
+        color: $ccui-list-item-hover-text;
+      }
+
+      &:active {
+        color: $ccui-list-item-hover-text;
+      }
+
+      &:disabled {
+        color: $ccui-disabled-text;
+      }
+    }
+
+    &--primary {
+      color: $ccui-brand-active;
+
+      &:hover {
+        color: $ccui-link-active;
+      }
+
+      &:focus {
+        color: $ccui-brand-active-focus;
+      }
+
+      &:active {
+        color: $ccui-brand-active-focus;
+      }
+
+      &:disabled {
+        opacity: 0.8;
+      }
+    }
+
+    &--danger {
+      color: $ccui-contrast;
+
+      &:hover,
+      &:focus,
+      &:active,
+      &:disabled {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &--sm {
+    padding: $ccui-btn-sm-padding;
+    height: $ccui-size-sm;
+    font-size: $ccui-font-size-sm;
+    min-width: 56px;
+  }
+
+  &--lg {
+    padding: $ccui-btn-lg-padding;
+    height: $ccui-size-lg;
+    font-size: $ccui-font-size-lg;
+    min-width: 72px;
+  }
+
+  &.#{$cls-prefix}-button__icon:not(.#{$cls-prefix}-button--solid) {
+    &:hover,
+    &:focus {
+      border: 1px solid $ccui-list-item-hover-bg;
+      background-color: $ccui-list-item-hover-bg;
+    }
+
+    &:disabled {
+      background-color: $ccui-disabled-bg;
+    }
+  }
+
+  &:not(:disabled) {
+    &.#{$cls-prefix}-button--text {
+      &.#{$cls-prefix}-button__icon-wrap {
+        color: $ccui-text;
+
+        .#{$cls-prefix}-button__icon-fix {
+          color: $ccui-text-weak;
+        }
+
+        &:hover {
+          color: $ccui-list-item-hover-text;
+
+          .#{$cls-prefix}-button__icon-fix {
+            color: $ccui-icon-fill-active;
+          }
+
+          .button-content {
+            color: $ccui-brand;
+          }
+        }
+      }
+    }
+  }
+
+  &--circle {
+    border-radius: 100%;
+  }
+
+  &--round {
+    border-radius: 20px;
+  }
+}
+
+.#{$cls-prefix}-loading {
+  .#{$cls-prefix}-loading-default-spinner {
+    div {
+      background-color: $ccui-text;
+    }
+  }
+}
+
+.#{$cls-prefix}-button {
+  transition: background-color $ccui-animation-duration-slow $ccui-animation-ease-in-out-smooth,
+    border-color $ccui-animation-duration-slow $ccui-animation-ease-in-out-smooth,
+    color $ccui-animation-duration-slow $ccui-animation-ease-in-out-smooth;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-style: solid;
+
+  &.#{$cls-prefix}-button__icon {
+    padding: 8px;
+    line-height: 1em;
+    min-width: unset;
+
+    &:not(.#{$cls-prefix}-button--circle) {
+      border: 1px solid transparent;
+    }
+
+    &.#{$cls-prefix}-button--sm {
+      padding: 4px;
+      min-width: 24px;
+    }
+
+    &.#{$cls-prefix}-button--lg {
+      .icon {
+        font-size: $ccui-font-size-icon;
+      }
+
+      min-width: 32px;
+    }
+
+    &.#{$cls-prefix}-button--circle {
+      width: $ccui-size-md;
+
+      &.#{$cls-prefix}-button--sm {
+        width: $ccui-size-sm;
+      }
+
+      &.#{$cls-prefix}-button--lg {
+        width: $ccui-size-lg;
+      }
+    }
+  }
+
+  &:not(.#{$cls-prefix}-button__icon) {
+    .icon-fix {
+      font-size: $ccui-font-size-icon;
+    }
+  }
+}
+
+.#{$cls-prefix}-button__icon-fix {
+  position: relative;
+  font-size: $ccui-font-size;
+}
+
+.button-content {
+  display: inline-block;
+  position: relative;
+}
+
+.clear-right-5 {
+  margin-right: 5px;
+}
+
+.loading-icon__container {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 5px;
+
+  .button-icon-loading {
+    animation: rotating 1.5s linear infinite;
+  }
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes waterWave {
+  0% {
+    opacity: 0.2;
+    width: 30px;
+    height: 30px;
+  }
+
+  100% {
+    opacity: 0;
+    width: 200px;
+    height: 200px;
+  }
+}

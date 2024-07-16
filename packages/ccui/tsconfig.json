@@ -15,7 +15,7 @@
     "moduleDetection": "force",
     "noEmit": false,
     "jsx": "preserve",
-    "types": ["vite/client","node"],
+    "types": ["vite/client"],
 
     /* Linting */
     "noUnusedLocals": true,
@@ -27,5 +27,5 @@
     "declaration": true,
     "declarationDir": "build/types/",
   },
-  "include": ["ui/**/*.ts", "ui/**/*.tsx", "ui/**/*.vue"]
+  "include": ["ui/**/*.ts", "ui/**/*.tsx", "ui/**/*.vue","vite.config.ts"]
 }

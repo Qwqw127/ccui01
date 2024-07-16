@@ -1,0 +1,102 @@
+@import '../../style-var/index.scss';
+
+@keyframes ccui-busy-spinner-anim {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.5);
+  }
+
+  to {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.#{$cls-prefix}-loading__mask {
+  // to mask cover fixed column
+  z-index: $ccui-z-index-full-page-overlay;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: $ccui-line;
+  opacity: 0.3;
+}
+
+.#{$cls-prefix}-loading__wrapper {
+  text-align: center;
+}
+
+.#{$cls-prefix}-loading--full {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: $ccui-z-index-full-page-overlay;
+}
+
+.#{$cls-prefix}-loading--hidden {
+  overflow: hidden;
+}
+
+.#{$cls-prefix}-loading__text {
+  margin-left: 10px;
+}
+
+// 默认加载样式
+.#{$cls-prefix}-loading__area {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 12px 14px;
+  background: var(--ccui-base-bg, #ffffff);
+  border-radius: var(--ccui-border-radius-card, 6px);
+}
+
+.#{$cls-prefix}-loading__busy-default-spinner {
+  position: relative;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  animation: ccui-busy-spinner-anim 1s linear infinite;
+
+  div {
+    position: absolute;
+    left: 44.5%;
+    top: 37%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  .#{$cls-prefix}-loading__bar1 {
+    top: 0;
+    left: 0;
+    background: #5e7ce0;
+    background: var(--ccui-brand, #5e7ce0);
+  }
+
+  .#{$cls-prefix}-loading__bar2 {
+    top: 0;
+    left: 9px;
+    background: #859bff;
+    background: var(--ccui-brand-foil, #859bff);
+  }
+
+  .#{$cls-prefix}-loading__bar3 {
+    top: 9px;
+    left: 0;
+    background: #859bff;
+    background: var(--ccui-brand-foil, #859bff);
+  }
+
+  .#{$cls-prefix}-loading__bar4 {
+    top: 9px;
+    left: 9px;
+    background: #5e7ce0;
+    background: var(--ccui-brand, #5e7ce0);
+  }
+}
