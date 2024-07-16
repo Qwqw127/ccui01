@@ -8,13 +8,13 @@
 
     &:not(:first-child),
     &:not(:first-child) .#{$cls-prefix}-button {
+      margin-left: -1px;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
-      margin-left: -1px;
 
       &.#{$cls-prefix}-button--solid--primary {
-        border-left: 1px solid $ccui-brand-hover;
         margin-left: 0;
+        border-left: 1px solid $ccui-brand-hover;
       }
     }
 

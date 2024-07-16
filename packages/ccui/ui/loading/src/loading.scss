@@ -15,13 +15,13 @@
 }
 
 .#{$cls-prefix}-loading__mask {
-  // to mask cover fixed column
-  z-index: $ccui-z-index-full-page-overlay;
   position: absolute;
-  left: 0;
+  top: 0;
   right: 0;
   bottom: 0;
-  top: 0;
+  left: 0;
+  // to mask cover fixed column
+  z-index: $ccui-z-index-full-page-overlay;
   background-color: $ccui-line;
   opacity: 0.3;
 }
@@ -32,10 +32,10 @@
 
 .#{$cls-prefix}-loading--full {
   position: fixed;
-  left: 0;
+  top: 0;
   right: 0;
   bottom: 0;
-  top: 0;
+  left: 0;
   z-index: $ccui-z-index-full-page-overlay;
 }
 
@@ -50,10 +50,10 @@
 // 默认加载样式
 .#{$cls-prefix}-loading__area {
   position: absolute;
-  transform: translate(-50%, -50%);
   padding: 12px 14px;
   background: var(--ccui-base-bg, #ffffff);
   border-radius: var(--ccui-border-radius-card, 6px);
+  transform: translate(-50%, -50%);
 }
 
 .#{$cls-prefix}-loading__busy-default-spinner {
@@ -65,8 +65,8 @@
 
   div {
     position: absolute;
-    left: 44.5%;
     top: 37%;
+    left: 44.5%;
     width: 6px;
     height: 6px;
     border-radius: 50%;
