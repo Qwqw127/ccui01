@@ -45,11 +45,14 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "dependencies": {
+    "ccui-theme": "workspace:^",
     "clipboard-copy": "^4.0.1",
     "vitepress-theme-demoblock": "^2.0.2",
     "vue": "^3.4.31"
   },
   "devDependencies": {
+    "@docsearch/css": "^3.6.1",
+    "@docsearch/js": "^3.6.1",
     "@types/markdown-it": "^14.1.1",
     "@types/node": "^20.1.4",
     "@types/vue": "^2.0.0",

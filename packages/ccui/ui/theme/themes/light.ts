@@ -114,6 +114,7 @@ export default {
   'border-radius': '2px',
   'border-radius-feedback': '4px',
   'border-radius-card': '6px',
+  'border-radius-full': '100px', // 补充
   // 阴影
   'shadow-length-base': '0 1px 4px 0',
   'shadow-length-slide-left': '-2px 0 8px 0',

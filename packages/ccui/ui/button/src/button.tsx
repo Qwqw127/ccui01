@@ -53,7 +53,7 @@ export default defineComponent({
           {icon.value && (
             <DIcon
               name={icon.value}
-              size='var(--devui-font-size, 12px)'
+              size='var(--ccui-font-size, 12px)'
               color=''
               class={iconClass.value}
             />

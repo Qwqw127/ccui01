@@ -1,4 +1,6 @@
-import Theme from 'vitepress/theme';
+// import Theme from 'vitepress/theme';
+// 将theme修改为自定义主题
+import Theme from '../ccui-theme';
 import './styles/index.scss';
 // import 'vitepress-theme-demoblock/theme/styles/index.css';
 import 'vitepress-theme-demoblock/dist/theme/styles/index.css'

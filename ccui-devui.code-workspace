@@ -1,0 +1,8 @@
+{
+  "folders": [
+    { "name": "root", "path": "." },
+    { "name": "ccui-cli", "path": "./packages/cli" },
+    { "name": "ccui-theme", "path": "./packages/devui-theme" },
+    { "name": "ccui-vue", "path": "./packages/ccui" }
+  ]
+}

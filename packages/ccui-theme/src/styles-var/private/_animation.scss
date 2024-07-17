@@ -1,0 +1,13 @@
+// Animation 动效
+
+$ccui-animation-ease-in-smooth: var(--ccui-animation-ease-in-smooth, cubic-bezier(0.645, 0.045, 0.355, 1));// 命名与实际曲线不符，待废弃
+
+$ccui-animation-duration-slow: var(--ccui-animation-duration-slow, 300ms);
+$ccui-animation-duration-base: var(--ccui-animation-duration-base, 200ms);
+$ccui-animation-duration-fast: var(--ccui-animation-duration-fast, 100ms);
+
+$ccui-animation-ease-in: var(--ccui-animation-ease-in, cubic-bezier(0.5, 0, 0.84, 0.25));
+$ccui-animation-ease-out: var(--ccui-animation-ease-out, cubic-bezier(0.16, 0.75, 0.5, 1));
+$ccui-animation-ease-in-out: var(--ccui-animation-ease-in-out, cubic-bezier(0.5, 0.05, 0.5, 0.95));
+$ccui-animation-ease-in-out-smooth: var(--ccui-animation-ease-in-out-smooth, cubic-bezier(0.645, 0.045, 0.355, 1));
+$ccui-animation-linear: var(--ccui-animation-linear, cubic-bezier(0, 0, 1, 1));

@@ -1,0 +1,24 @@
+// 字号大小变量
+
+$ccui-font-size: var(--ccui-font-size, 12px); //正文、卡片副标题
+$ccui-font-size-card-title: var(--ccui-font-size-card-title, 14px); //卡片标题
+$ccui-font-size-page-title: var(--ccui-font-size-page-title, 16px); //页面标题
+$ccui-font-size-message: var(--ccui-font-size-page-title, 16px); //页面标题
+$ccui-font-size-modal-title: var(--ccui-font-size-modal-title, 18px); //弹窗标题、数字
+$ccui-font-size-price: var(--ccui-font-size-price, 20px); //购买价格
+$ccui-font-size-data-overview: var(--ccui-font-size-data-overview, 24px); //数据总览
+
+$ccui-font-size-h1-title: var(--ccui-font-size-h1-title, 28px);
+$ccui-font-size-h2-title: var(--ccui-font-size-h2-title, 24px);
+$ccui-font-size-h3-title: var(--ccui-font-size-h3-title, 20px);
+$ccui-font-size-h4-title: var(--ccui-font-size-h4-title, 18px);
+$ccui-font-size-h5-title: var(--ccui-font-size-h5-title, 16px);
+
+$ccui-font-size-icon: var(--ccui-font-size-icon, 16px); //图标大小
+$ccui-font-size-sm: var(--ccui-font-size-sm, 12px); //当组件size为'sm'时使用此字号大小
+$ccui-font-size-md: var(--ccui-font-size-md, 12px); //当组件size为''时使用此字号大小
+$ccui-font-size-lg: var(--ccui-font-size-lg, 14px); //当组件size为'lg'时使用此字号大小
+
+$ccui-font-title-weight: var(--ccui-font-title-weight, bold); //标题文字粗细
+$ccui-font-content-weight: var(--ccui-font-content-weight, normal); //内容文字粗细
+$ccui-line-height-base: var(--ccui-line-height-base, 1.5); //规范行高

@@ -22,10 +22,17 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@ui/*": ["./ui/*"],
+      "@ccui/*": ["./ui/*"]
     },
     "declaration": true,
-    "declarationDir": "build/types/",
+    "declarationDir": "build/types/"
   },
-  "include": ["ui/**/*.ts", "ui/**/*.tsx", "ui/**/*.vue","vite.config.ts"]
+  "include": [
+    "ui/**/*.ts",
+    "ui/**/*.tsx",
+    "ui/**/*.vue",
+    "vite.config.ts",
+    "docs/**/*.vue",
+    "docs/**/*.ts"
+  ]
 }

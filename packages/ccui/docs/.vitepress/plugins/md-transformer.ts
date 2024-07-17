@@ -2,7 +2,7 @@ import { Plugin } from 'vite';
 const hasDemoBlock = (str: string) => /:::demo/gim.test(str);
 export function MdTransformer(): Plugin {
   return {
-    name: 'devui-markdown-demo-transformer',
+    name: 'ccui-markdown-demo-transformer',
     transform(code, id) {
       if (!id.endsWith('.md')) {
         return;

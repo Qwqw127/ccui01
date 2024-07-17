@@ -9,7 +9,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 
 export default defineConfig({
   resolve: {
-    alias: [{ find: '@ui', replacement: resolve(__dirname, './ui') }]
+    alias: [{ find: '@ccui', replacement: resolve(__dirname, './ui') }]
   },
   plugins: [vue(), vueJsx()],
   test: {

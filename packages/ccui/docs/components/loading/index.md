@@ -166,7 +166,7 @@ export default defineComponent({
     const temp1 = h(
       'div',
       {
-        className: 'devui-infinity-loading'
+        className: 'ccui-infinity-loading'
       },
       h('i', {
         className: 'icon-refresh'
@@ -176,7 +176,7 @@ export default defineComponent({
     const temp2 = h(
       'div',
       {
-        className: 'devui-circle-loading-container-2'
+        className: 'ccui-circle-loading-container-2'
       },
       h('i', {
         className: 'icon-refresh'
@@ -186,7 +186,7 @@ export default defineComponent({
     const temp3 = h(
       'div',
       {
-        className: 'devui-circle-loading-container-3'
+        className: 'ccui-circle-loading-container-3'
       },
       h('i', {
         className: 'icon-refresh'
@@ -225,21 +225,21 @@ export default defineComponent({
 </script>
 
 <style>
-.devui-infinity-loading {
+.ccui-infinity-loading {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 }
 
-.devui-circle-loading-container-2 {
+.ccui-circle-loading-container-2 {
   position: absolute;
   left: 5px;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.devui-circle-loading-container-3 {
+.ccui-circle-loading-container-3 {
   position: absolute;
   right: -20px;
   top: 50%;

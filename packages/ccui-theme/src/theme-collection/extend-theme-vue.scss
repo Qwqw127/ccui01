@@ -1,0 +1,340 @@
+@import '../styles-var/index.scss';
+
+body[ui-theme='infinity-theme'],
+body[ui-theme='sweet-theme'],
+body[ui-theme='provence-theme'],
+body[ui-theme='deep-theme'],
+body[ui-theme='galaxy-theme'] {
+  // TODO: 组件支持全局配置默认尺寸参数后删除
+  // button default size change to '32px'
+  .#{$ccui-prefix}-button:not(.#{$ccui-prefix}-button--sm):not(.#{$ccui-prefix}-button--lg) {
+    height: 32px;
+    line-height: 32px;
+  }
+
+  .ccui-nav {
+    display: inline;
+
+    --ccui-font-size-card-title: 14px;
+  }
+
+  d-tag {
+    --ccui-font-size: var(--ccui-font-size-sm, 12px);
+  }
+  // datepicker定制化处理高亮
+  d-datepicker,
+  d-date-range-picker,
+  d-datepicker-range-single,
+  d-two-datepicker-single {
+    --ccui-list-item-active-bg: var(--ccui-brand, #5e7ce0);
+    --ccui-list-item-active-hover-bg: var(--ccui-brand, #526ecc);
+    --ccui-list-item-active-text: var(--ccui-light-text, #ffffff);
+    --ccui-font-size: var(--ccui-font-size-sm, 12px);
+  }
+
+  // TODO: 表单底层统一使用一致的input，全局修改该input尺寸默认值即可
+  // input default size change to '32px'
+  d-multi-auto-complete .multi-auto-complete label.multiple-label-auto-complete ul.ccui-dropdown-origin {
+    padding: 3px 2px 0 2px;
+    min-height: 32px;
+  }
+
+  .#{$ccui-prefix}-search {
+    .#{$ccui-prefix}-input:not(.#{$ccui-prefix}-input--sm):not(.#{$ccui-prefix}-input--lg) {
+      height: 32px;
+    }
+
+    .#{$ccui-prefix}-search-icon {
+      line-height: 32px;
+    }
+
+    .#{$ccui-prefix}-search-clear:not(.#{$ccui-prefix}-search-clear-lg):not(.#{$ccui-prefix}-search-clear-sm) {
+      line-height: 32px;
+    }
+  }
+
+  d-select .ccui-form-group {
+    .ccui-form-control {
+      &.ccui-select-input {
+        height: 30px;
+      }
+    }
+
+    .ccui-select-list-wrapper.ccui-form-control {
+      .ccui-select-placeholder {
+        height: 28px;
+        line-height: 28px;
+      }
+
+      ul.ccui-select-tag-list {
+        height: 28px;
+      }
+
+      .ccui-select-tag-item {
+        margin: 3px 1px 0;
+      }
+    }
+  }
+
+  d-tree-select {
+    .ccui-tree-select .popper .popper-activator .ccui-select-input.ccui-tree-select-input {
+      padding: 4px 10px;
+      min-height: 32px;
+      max-height: 64px;
+    }
+  }
+
+  input {
+    border-radius: $ccui-border-radius;
+  }
+
+  [dTextInput] {
+    height: 32px;
+  }
+
+  .ccui-form-controls input[type='text'],
+  .ccui-form-controls input[type='password'],
+  [dTextInput] {
+    height: 32px;
+  }
+
+  // select带有搜索存在两层ul
+  .ccui-dropdown-menu > ul.ccui-dropdown-menu-wrap {
+    // 存在搜索框时
+    & > li {
+      padding: 12px 12px 0 12px;
+    }
+
+    ul {
+      padding: 12px;
+
+      li {
+        border-radius: $ccui-border-radius;
+      }
+    }
+  }
+
+  // TODO: 下拉专项整改增加offset设置
+  .ccui-dropdown-menu {
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+  }
+
+  // breadcrumb dropdown menu
+  div.ccui-search-container {
+    padding: 12px 12px 0 12px;
+  }
+  // autoComplete等
+  .ccui-dropdown-menu > ul:not(.ccui-dropdown-menu-wrap) {
+    padding: 12px;
+
+    li {
+      border-radius: $ccui-border-radius;
+    }
+  }
+  // dropdown
+  ul.ccui-dropdown-menu {
+    padding: 12px;
+
+    li .ccui-dropdown-item {
+      border-radius: $ccui-border-radius;
+    }
+  }
+
+  d-tags-input {
+    .ccui-tags-autocomplete .ccui-suggestion-list {
+      padding: 12px !important;
+    }
+  }
+
+  .ccui-input-sm {
+    height: 24px;
+  }
+
+  .ccui-input-lg {
+    height: 46px;
+  }
+
+  .ccui-nav {
+    display: block;
+
+    &.ccui-nav-tabs,
+    &.ccui-nav-pills {
+      li a {
+        line-height: 32px !important;
+      }
+    }
+  }
+
+  // 表单尺寸未统一，upload内部自定义了高度
+  d-single-upload,
+  d-multiple-upload {
+    .ccui-input-group .ccui-form-control {
+      min-height: 32px !important;
+
+      .ccui-file-tag {
+        height: 26px !important;
+      }
+    }
+  }
+
+  div.popper-container div.popper-container-scrollable div.ccui-tree-select.ccui-options-container {
+    padding: 12px;
+  }
+
+  div.popper-container div.ccui-tree-select span.ccui-form-control-feedback {
+    top: 12px;
+    right: 12px;
+  }
+
+  .table-row-selected {
+    td {
+      color: #ffffff !important;
+    }
+  }
+
+  // pagination样式修改
+  d-pagination {
+    div.ccui-pagination ul.ccui-pagination-list li:not(.disabled) {
+      cursor: pointer;
+
+      a:hover,
+      span:hover,
+      a:focus,
+      span:focus {
+        background-color: transparent !important;
+        color: $ccui-text !important;
+        border: 1px solid $ccui-dividing-line !important;
+        box-shadow: 0 1px 3px 0 $ccui-light-shadow !important;
+      }
+
+      a:active {
+        background-color: transparent !important;
+        color: $ccui-text !important;
+      }
+
+      &.active a {
+        background-color: $ccui-primary !important;
+        color: $ccui-light-text !important;
+        cursor: pointer !important;
+
+        &:hover {
+          background-color: $ccui-primary !important;
+          color: $ccui-light-text !important;
+          border: 1px solid transparent !important;
+          box-shadow: none !important;
+        }
+      }
+
+      a.ccui-pagination-link:hover:not(:active) svg g polygon {
+        fill: $ccui-text !important;
+      }
+
+      a.ccui-pagination-link:active svg g polygon {
+        fill: $ccui-text !important;
+      }
+    }
+
+    ul.ccui-pagination-list > li > a {
+      height: 28px !important;
+      min-width: 28px !important;
+      padding: 0 4px !important;
+      justify-content: center !important;
+      border: 1px solid transparent !important;
+    }
+
+    ul.ccui-pagination-sm > li > a {
+      height: 24px !important;
+      min-width: 24px !important;
+    }
+
+    ul.ccui-pagination-lg > li > a {
+      height: 40px !important;
+      min-width: 40px !important;
+    }
+
+    .ccui-pagination-list > li:first-child > a,
+    .ccui-pagination-list > li:last-child > a {
+      padding: 0 !important;
+      height: 28px !important;
+      line-height: 28px !important;
+    }
+
+    .ccui-pagination-sm > li:first-child > a,
+    .ccui-pagination-sm > li:last-child > a {
+      height: 24px !important;
+      line-height: 24px !important;
+    }
+
+    .ccui-pagination-lg > li:first-child > a,
+    .ccui-pagination-lg > li:last-child > a {
+      height: 40px !important;
+      line-height: 40px !important;
+    }
+
+    .ccui-pagination-link {
+      height: 28px !important;
+      line-height: 28px !important;
+    }
+
+    .ccui-pagination-sm > li:first-child > a {
+      padding: 0 !important;
+    }
+
+    .ccui-pagination-sm > li:last-child > a {
+      padding: 0 !important;
+    }
+  }
+}
+
+body[ui-theme='deep-theme'] {
+  .ccui-tree-node__content.active {
+    .ccui-tree-node__title {
+      color: #ffffff;
+    }
+
+    svg.svg-icon rect {
+      stroke: #ffffff !important;
+    }
+
+    svg.svg-icon rect:last-child {
+      fill: #ffffff !important;
+    }
+  }
+
+  .table-row-selected {
+    td {
+      color: #ffffff !important;
+    }
+  }
+}
+
+body[ui-theme='infinity-theme'] {
+  .ccui-nav {
+    --ccui-brand: #252b3a;
+    --ccui-brand-active: #252b3a;
+    --ccui-text: #71757f;
+  }
+
+  .ccui-btn {
+    --ccui-text-weak: #71757f;
+    --ccui-icon-fill-active: #252b3a;
+  }
+}
+
+body[ui-theme='galaxy-theme'] {
+  .ccui-nav-slider {
+    --ccui-tab-slider-bg: #313131;
+    --ccui-text: #a3a3a3;
+    --ccui-brand-active: #ffffff;
+    --ccui-base-bg: #3f3f3f;
+  }
+
+  d-button .ccui-btn-common {
+    --ccui-block: transparent;
+  }
+
+  d-button .ccui-btn-primary:disabled {
+    --ccui-light-text: #838383;
+  }
+}

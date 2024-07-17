@@ -1,0 +1,127 @@
+@import './basic';
+// need to run `node scripts/themeable/transfer-sass-var-to-theme-data.js ` when modified
+
+// 基础变量
+$ccui-global-bg: var(--ccui-global-bg, #f6f6f8); // 全局带底色背景
+$ccui-glass-morphism-bg: var(--ccui-glass-morphism-bg, rgba(245, 246, 248, 0.9)); // 毛玻璃样式背景色
+$ccui-global-bg-normal: var(--ccui-global-bg-normal, $ccui-white-5); // 全局白色背景
+$ccui-base-bg: var(--ccui-base-bg, $ccui-white-5); // 基础区块背景白色
+$ccui-base-bg-dark: var(--ccui-base-bg-dark, $ccui-slate-100); // 基础区块背景深色(固定)
+$ccui-brand: var(--ccui-brand, $ccui-blue-50); // 品牌色
+$ccui-brand-foil: var(--ccui-brand-foil, $ccui-zinc-10); // 品牌色辅助色、正衬色
+$ccui-brand-hover: var(--ccui-brand-hover, $ccui-blue-40); // 品牌色高亮色（加亮）
+$ccui-brand-active: var(--ccui-brand-active, $ccui-blue-60); // 品牌色激活色（加深）
+$ccui-brand-active-focus: var(--ccui-brand-active-focus, $ccui-blue-90); // 品牌色焦点色（重度加深）
+$ccui-contrast: var(--ccui-contrast, #c7000b); // 品牌色撞色、对比色、反衬色、第二品牌色
+$ccui-text: var(--ccui-text, $ccui-slate-100); // 正文文本
+$ccui-text-weak: var(--ccui-text-weak, $ccui-slate-80); // 弱化的正文信息（手风琴子项，表头）
+$ccui-aide-text: var(--ccui-aide-text, $ccui-slate-70); // 辅助文本、帮助信息（面包屑）
+$ccui-aide-text-hover: var(--ccui-aide-text-hover, $ccui-slate-100); // 辅助文本悬浮色，用于标签文本悬浮等场景
+$ccui-aide-text-stress: var(--ccui-aide-text-stress, $ccui-slate-80); // 辅助文本、帮助信息里的强调色
+$ccui-placeholder: var(--ccui-placeholder, $ccui-slate-50); // 占位符
+$ccui-light-text: var(--ccui-light-text, $ccui-white-5); // 有色深色背景下字体颜色（固定）
+$ccui-dark-text: var(--ccui-dark-text, $ccui-slate-100); // 有色浅色背景下字体颜色（固定）
+$ccui-link: var(--ccui-link, $ccui-blue-60); // 链接文本颜色
+$ccui-link-active: var(--ccui-link-active, $ccui-blue-60); // 链接文本悬停/激活颜色
+$ccui-link-light: var(--ccui-link-light, $ccui-blue-30); // 深色背景下链接文本颜色
+$ccui-link-light-active: var(--ccui-link-light-active, $ccui-blue-20); // 深色背景下链接文本悬停/激活颜色
+$ccui-line: var(--ccui-line, $ccui-slate-30); // 边框分割线，仅用于边框
+$ccui-dividing-line: var(--ccui-dividing-line, $ccui-zinc-10); // 内容分割线，用于内容之间的分割
+$ccui-block: var(--ccui-block, $ccui-white-5); // 大面积的不可折叠区块的背景色（例如顶部导航背景色）
+$ccui-area: var(--ccui-area, $ccui-gray-5); // 可折叠区块的背景色（展开区域颜色）
+$ccui-danger: var(--ccui-danger, $ccui-red-50); // 失败、错误、告警
+$ccui-warning: var(--ccui-warning, $ccui-yellow-50); // 警告、需注意类型提示
+$ccui-waiting: var(--ccui-waiting, $ccui-blue-20); // 等待中
+$ccui-success: var(--ccui-success, $ccui-green-50); // 成功、正确
+$ccui-info: var(--ccui-info, $ccui-blue-50); // 通知、一般提示、执行中
+$ccui-initial: var(--ccui-initial, $ccui-blue-10); // 初始化、未执行
+$ccui-unavailable: var(--ccui-unavailable, $ccui-gray-5); // 不可用、禁用状态
+$ccui-shadow: var(--ccui-shadow, rgba(37, 43, 58, 0.24)); // 阴影色
+$ccui-light-shadow: var(--ccui-light-shadow, rgba(37, 43, 58, 0.12)); // 弱化阴影色
+$ccui-connected-overlay-shadow: var(--ccui-connected-overlay-shadow, rgba(37, 43, 58, 0.16)); // 下拉菜单类阴影色
+$ccui-feedback-overlay-shadow: var(--ccui-feedback-overlay-shadow, rgba(37, 43, 58, 0.2)); // 信息展示类阴影色
+
+// 图标
+$ccui-icon-text: var(--ccui-icon-text, $ccui-slate-70); // 文字图标颜色
+$ccui-icon-bg: var(--ccui-icon-bg, $ccui-white-5); // svg图标 背景色
+$ccui-icon-fill: var(--ccui-icon-fill, $ccui-slate-70); // svg图标 灰色填充色
+$ccui-icon-fill-weak: var(--ccui-icon-fill-weak, $ccui-slate-50); // svg弱化图标 灰色填充色
+$ccui-icon-fill-hover: var(--ccui-icon-fill-hover, $ccui-slate-100); // svg图标 灰色填充色悬停反馈色
+$ccui-icon-fill-active: var(--ccui-icon-fill-active, $ccui-slate-100); // svg图标 高亮填充色（激活状态）
+$ccui-icon-fill-active-hover: var(--ccui-icon-fill-active-hover, $ccui-slate-100); // svg图标 高亮填充色悬停反馈色
+$ccui-shape-icon-fill: var(--ccui-shape-icon-fill, $ccui-slate-30); // svg图标 面型图标颜色
+$ccui-shape-icon-fill-hover: var(--ccui-shape-icon-fill-hover, $ccui-slate-50); // svg图标 面型图标悬浮色
+$ccui-shape-icon-fill-active: var(--ccui-shape-icon-fill-active, $ccui-slate-50); // svg图标 面型图标激活色
+$ccui-shape-icon-fill-disabled: var(--ccui-shape-icon-fill-disabled, $ccui-gray-5); // svg图标 面型图标激活色
+// 表单
+$ccui-form-control-line: var(--ccui-form-control-line, $ccui-slate-30); // 表单控件边框色，同 边框分割线
+$ccui-form-control-bg: var(--ccui-form-control-bg, $ccui-white-5); // 表单控件背景色
+$ccui-form-control-line-hover: var(--ccui-form-control-line-hover, $ccui-slate-60); // 表单控件边框悬停反馈色
+$ccui-form-control-line-active: var(--ccui-form-control-line-active, $ccui-blue-50); // 表单控件边框激活色，用于获得焦点
+$ccui-form-control-interactive-outline: var(
+  --ccui-form-control-interactive-outline,
+  rgba(94, 124, 224, 0.08)
+); // 表单控件边框激活色的外框阴影色
+$ccui-form-control-line-active-hover: var(
+  --ccui-form-control-line-active-hover,
+  $ccui-blue-90
+); // 表单控件边框激活色，用于获得焦点且悬停
+// 列表
+$ccui-list-item-active-bg: var(--ccui-list-item-active-bg, $ccui-blue-5); // 列表类型单选选中背景
+$ccui-list-item-active-text: var(
+  --ccui-list-item-active-text,
+  $ccui-slate-100
+); // 列表类型单选选中背景搭配文本，同 有色深色背景下字体颜色（固定）
+$ccui-list-item-active-hover-bg: var(--ccui-list-item-active-hover-bg, $ccui-blue-5); // 列表类型单选选中背景悬停反馈色（仅用于分页等）
+$ccui-list-item-hover-bg: var(--ccui-list-item-hover-bg, $ccui-zinc-10); // 列表类型普通选项悬停背景
+$ccui-list-item-hover-text: var(--ccui-list-item-hover-text, $ccui-slate-100); // 列表类型普通选项悬停背景搭配文本
+$ccui-list-item-selected-bg: var(--ccui-list-item-selected-bg, $ccui-blue-5); // 列表类型多选被选中的行色，仅用于表格类
+$ccui-list-item-strip-bg: var(--ccui-list-item-strip-bg, $ccui-blue-5); // 列表类型斑马纹色，仅用于表格类
+// 禁用
+$ccui-disabled-bg: var(--ccui-disabled-bg, $ccui-gray-5); // disabled背景颜色
+$ccui-disabled-line: var(--ccui-disabled-line, $ccui-slate-20); // disabled边框颜色
+$ccui-disabled-text: var(--ccui-disabled-text, $ccui-slate-40); // disabled文字颜色
+$ccui-primary-disabled: var(--ccui-primary-disabled, $ccui-blue-20); //主要按钮disabled状态文字颜色
+$ccui-icon-fill-active-disabled: var(--ccui-icon-fill-active-disabled, $ccui-blue-20); // svg图标激活状态禁用色
+// 特殊背景色
+$ccui-label-bg: var(--ccui-label-bg, $ccui-blue-10); // 默认标签化选项背景色
+$ccui-connected-overlay-bg: var(--ccui-connected-overlay-bg, $ccui-white-5); // 有连接点的弹出菜单层背景色
+$ccui-connected-overlay-line: var(--ccui-connected-overlay-line, $ccui-blue-60); // 有连接点的弹出菜单层边框色
+$ccui-fullscreen-overlay-bg: var(--ccui-fullscreen-overlay-bg, $ccui-white-5); // 全屏类型的弹出内容层背景色（模态弹窗）
+$ccui-feedback-overlay-bg: var(--ccui-feedback-overlay-bg, #464d6e); // 信息提示反馈类型的漂浮层背景色（toast、popover）
+$ccui-feedback-overlay-text: var(--ccui-feedback-overlay-text, $ccui-slate-20); // 信息提示反馈类型的漂浮层背景色搭配文本色
+$ccui-embed-search-bg: var(--ccui-embed-search-bg, $ccui-zinc-10); // 被嵌套的无边框搜索框背景色
+$ccui-embed-search-bg-hover: var(--ccui-embed-search-bg-hover, $ccui-slate-10); // 被嵌套的无边框搜索框背景色
+$ccui-float-block-shadow: var(--ccui-float-block-shadow, rgba(94, 124, 224, 0.3)); // 特殊浮层背景色（待修正）
+$ccui-highlight-overlay: var(--ccui-highlight-overlay, rgba(255, 255, 255, 0.8)); // 局部半透明全局浮层背景色（比如底部）
+$ccui-range-item-hover-bg: var(--ccui-range-item-hover-bg, $ccui-blue-10); // datepicker范围中的日期hover的反馈背景色
+$ccui-gray-form-control-bg: var(--ccui-gray-form-control-bg, $ccui-gray-5); // 灰色模式输入框默认背景色
+$ccui-gray-form-control-hover-bg: var(--ccui-gray-form-control-hover-bg, $ccui-gray-10); // 灰色模式输入框hover背景色
+$ccui-nav-expand-bg: var(--ccui-nav-expand-bg, #fbfbfc); //菜单展开区域背景色
+
+// 按钮
+$ccui-primary: var(--ccui-primary, $ccui-blue-50); // 主要按钮，同品牌色
+$ccui-primary-hover: var(--ccui-primary-hover, $ccui-blue-40); // 主要按钮悬停
+$ccui-primary-active: var(--ccui-primary-active, $ccui-blue-90); // 主要按钮激活
+
+$ccui-contrast-hover: var(--ccui-contrast-hover, #d64a52); // 突出按钮悬停
+$ccui-contrast-active: var(--ccui-contrast-active, #b12220); // 突出按钮激活
+$ccui-contrast-disabled: var(--ccui-contrast-disabled, #ffbcba); // 突出按钮禁用
+
+// 状态
+$ccui-danger-line: var(--ccui-danger-line, $ccui-red-50); // 失败边框
+$ccui-danger-bg: var(--ccui-danger-bg, $ccui-red-10); // 失败底色
+
+$ccui-warning-line: var(--ccui-warning-line, $ccui-orange-50); // 警告边框
+$ccui-warning-bg: var(--ccui-warning-bg, $ccui-orange-10); // 警告底色
+
+$ccui-info-line: var(--ccui-info-line, $ccui-blue-50); // 通知边框
+$ccui-info-bg: var(--ccui-info-bg, $ccui-blue-10); // 通知底色
+
+$ccui-success-line: var(--ccui-success-line, $ccui-green-50); // 成功边框
+$ccui-success-bg: var(--ccui-success-bg, $ccui-green-10); // 成功底色
+$ccui-primary-line: var(--ccui-primary-line, $ccui-blue-50); // 主要边框
+$ccui-primary-bg: var(--ccui-primary-bg, $ccui-blue-5); // 主要底色
+
+$ccui-default-line: var(--ccui-default-line, $ccui-blue-50); // 默认边框
+$ccui-default-bg: var(--ccui-default-bg, $ccui-slate-5); // 默认底色

@@ -15,6 +15,13 @@ $ pnpm install vue3-ccui01
 - 本地链接使用 pnpm link  
     ```pnpm link ..\ccui01\packages\ccui\build\  ```
 
+- packages包引用
+    ```shell 
+    #设置代理
+   $ npm config set proxy=http://127.0.0.1:7989
+   $ pnpm add ccui-theme --workspace --filter vue3-ccui01
+    ```
+
 ### 完整引入
 ```ts
 import {createApp} from 'vue'

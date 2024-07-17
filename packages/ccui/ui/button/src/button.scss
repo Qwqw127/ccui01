@@ -1,28 +1,28 @@
 @import '../../style-var/index.scss';
 
-$ccui-btn-padding: var(--devui-btn-padding, 0 20px);
-$ccui-btn-common-bg: var(--devui-btn-common-bg, $ccui-base-bg);
-$ccui-btn-common-bg-hover: var(--devui-btn-common-bg-hover, $ccui-base-bg);
-$ccui-btn-common-bg-active: var(--devui-btn-common-bg-active, $ccui-base-bg);
+$ccui-btn-padding: var(--ccui-btn-padding, 0 20px);
+$ccui-btn-common-bg: var(--ccui-btn-common-bg, $ccui-base-bg);
+$ccui-btn-common-bg-hover: var(--ccui-btn-common-bg-hover, $ccui-base-bg);
+$ccui-btn-common-bg-active: var(--ccui-btn-common-bg-active, $ccui-base-bg);
 $ccui-btn-common-color-hover: var(
-  --devui-btn-common-color-hover,
+  --ccui-btn-common-color-hover,
   $ccui-brand-active
 );
 $ccui-btn-common-color-active: var(
-  --devui-btn-common-color-active,
+  --ccui-btn-common-color-active,
   $ccui-brand-active
 );
-$ccui-btn-common-border-color: var(--devui-btn-common-border-color, $ccui-line);
+$ccui-btn-common-border-color: var(--ccui-btn-common-border-color, $ccui-line);
 $ccui-btn-common-border-color-hover: var(
-  --devui-btn-common-border-color-hover,
+  --ccui-btn-common-border-color-hover,
   $ccui-form-control-line-active
 );
 $ccui-btn-common-border-color-active: var(
-  --devui-btn-common-border-color-active,
+  --ccui-btn-common-border-color-active,
   $ccui-form-control-line-active
 );
-$ccui-btn-sm-padding: var(--devui-btn-sm-padding, 0 16px);
-$ccui-btn-lg-padding: var(--devui-btn-lg-padding, 0 24px);
+$ccui-btn-sm-padding: var(--ccui-btn-sm-padding, 0 16px);
+$ccui-btn-lg-padding: var(--ccui-btn-lg-padding, 0 24px);
 
 @mixin btn-solid-style {
   color: $ccui-brand-active;
