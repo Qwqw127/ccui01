@@ -2,7 +2,7 @@ import { ccuiDarkTheme, ccuiLightTheme, Theme } from '../theme';
 import {
   ccuiCustomComponentsDarkThemeData,
   ccuiCustomComponentsDeepThemeData,
-  ccuiCustomComponentsThemeData,
+  ccuiCustomComponentsThemeData
 } from './theme-custom-components-data';
 import { ccuiInitialThemeData } from './theme-initial-data';
 export const infinityTheme: Theme = new Theme({
@@ -11,10 +11,10 @@ export const infinityTheme: Theme = new Theme({
   data: {
     ...ccuiLightTheme.data,
     ...ccuiInitialThemeData,
-    ...ccuiCustomComponentsThemeData,
+    ...ccuiCustomComponentsThemeData
   },
   extends: 'ccui-light-theme',
-  isDark: false,
+  isDark: false
 });
 
 export const provenceTheme: Theme = new Theme({
@@ -60,10 +60,10 @@ export const provenceTheme: Theme = new Theme({
     'ccui-icon-fill-active-disabled': '#d8d2fa',
     'ccui-link-active': '#3f1a9c',
     'ccui-gray-form-control-bg': '#f5f5f5',
-    'ccui-gray-form-control-hover-bg': '#ebebeb',
+    'ccui-gray-form-control-hover-bg': '#ebebeb'
   },
   extends: 'infinity-theme',
-  isDark: false,
+  isDark: false
 });
 
 export const sweetTheme: Theme = new Theme({
@@ -109,10 +109,10 @@ export const sweetTheme: Theme = new Theme({
     'ccui-icon-fill-active-disabled': '#fad1e6',
     'ccui-link-active': '#96114d',
     'ccui-gray-form-control-bg': '#f5f5f5',
-    'ccui-gray-form-control-hover-bg': '#ebebeb',
+    'ccui-gray-form-control-hover-bg': '#ebebeb'
   },
   extends: 'infinity-theme',
-  isDark: false,
+  isDark: false
 });
 
 export const deepTheme: Theme = new Theme({
@@ -164,10 +164,10 @@ export const deepTheme: Theme = new Theme({
     'ccui-icon-fill-active-disabled': '#bebfc4',
     'ccui-gray-form-control-bg': '#f5f5f5',
     'ccui-gray-form-control-hover-bg': '#ebebeb',
-    'ccui-nav-expand-bg': '#f7f7f8',
+    'ccui-nav-expand-bg': '#f7f7f8'
   },
   extends: 'infinity-theme',
-  isDark: false,
+  isDark: false
 });
 
 export const galaxyTheme: Theme = new Theme({
@@ -231,8 +231,8 @@ export const galaxyTheme: Theme = new Theme({
     'ccui-shadow-length-fullscreen-overlay': '0 0 6px 0',
     'ccui-gray-form-control-bg': '#323338',
     'ccui-gray-form-control-hover-bg': '#393A3E',
-    'ccui-nav-expand-bg': '#1d1d21',
+    'ccui-nav-expand-bg': '#1d1d21'
   },
   extends: 'ccui-dark-theme',
-  isDark: true,
+  isDark: true
 });

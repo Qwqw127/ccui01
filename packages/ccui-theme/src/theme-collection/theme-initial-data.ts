@@ -135,5 +135,5 @@ export const ccuiInitialThemeData = {
   'ccui-z-index-dropdown': '1052',
   'ccui-z-index-modal': '1050',
   'ccui-z-index-drawer': '1040',
-  'ccui-z-index-framework': '1000',
+  'ccui-z-index-framework': '1000'
 };

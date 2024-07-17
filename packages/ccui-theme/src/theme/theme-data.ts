@@ -159,9 +159,9 @@ export const ccuiLightTheme: Theme = new Theme({
 
     'ccui-icon-active-color': '#ffffff',
     'ccui-gray-form-control-bg': '#f5f5f5',
-    'ccui-gray-form-control-hover-bg': '#ebebeb',
+    'ccui-gray-form-control-hover-bg': '#ebebeb'
   },
-  isDark: false,
+  isDark: false
 });
 export const ccuiGreenTheme: Theme = new Theme({
   id: 'ccui-green-theme',
@@ -207,10 +207,10 @@ export const ccuiGreenTheme: Theme = new Theme({
     'ccui-default-bg': '#f3f8f7',
     'ccui-primary-disabled': '#c5f0e5',
     'ccui-icon-fill-active-disabled': '#c5f0e5',
-    'ccui-range-item-hover-bg': '#d8f9ea',
+    'ccui-range-item-hover-bg': '#d8f9ea'
   },
   extends: 'ccui-light-theme',
-  isDark: false,
+  isDark: false
 });
 export const ccuiDarkTheme: Theme = new Theme({
   id: 'ccui-dark-theme',
@@ -325,10 +325,10 @@ export const ccuiDarkTheme: Theme = new Theme({
     'ccui-menu-item': '#dcdcdc',
     'ccui-menu-item-sub': '#c6c6c6',
     'ccui-menu-item-hover': '#fff',
-    'ccui-menu-disabled': '#919191',
+    'ccui-menu-disabled': '#919191'
   },
   extends: 'ccui-light-theme',
-  isDark: true,
+  isDark: true
 });
 export const ccuiGreenDarkTheme: Theme = new Theme({
   id: 'ccui-green-dark-theme',
@@ -365,8 +365,8 @@ export const ccuiGreenDarkTheme: Theme = new Theme({
     'ccui-default-line': '#3DCCA6',
     'ccui-default-bg': '#383838',
     'ccui-primary-disabled': '#28544B',
-    'ccui-icon-fill-active-disabled': '#28544B',
+    'ccui-icon-fill-active-disabled': '#28544B'
   },
   extends: 'ccui-dark-theme',
-  isDark: true,
+  isDark: true
 });

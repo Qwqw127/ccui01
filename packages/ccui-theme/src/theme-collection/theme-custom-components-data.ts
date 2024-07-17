@@ -12,7 +12,7 @@ export const ccuiCustomComponentsThemeData = {
   'ccui-btn-common-border-color-active': 'transparent',
   'ccui-btn-common-border-disabled': 'transparent',
   'ccui-icon-hover-bg': '#EBEBEB',
-  'ccui-icon-active-bg': '#D1D1D1',
+  'ccui-icon-active-bg': '#D1D1D1'
 };
 
 export const ccuiCustomComponentsDarkThemeData = {
@@ -29,11 +29,11 @@ export const ccuiCustomComponentsDarkThemeData = {
   'ccui-btn-common-border-color-active': 'transparent',
   'ccui-btn-common-border-disabled': 'transparent',
   'ccui-icon-hover-bg': '#393a3e',
-  'ccui-icon-active-bg': '#4e5057',
+  'ccui-icon-active-bg': '#4e5057'
 };
 
 export const ccuiCustomComponentsDeepThemeData = {
   'ccui-btn-common-bg': '#E0E0E0',
   'ccui-btn-common-bg-hover': '#BDBDBD',
-  'ccui-btn-common-bg-active': '#A1A1A1',
+  'ccui-btn-common-bg-active': '#A1A1A1'
 };

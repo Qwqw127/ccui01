@@ -11,10 +11,13 @@ export default defineConfig({
   resolve: {
     alias: [
       // { find: '@ccui/theme', replacement: resolve(__dirname, '../../ccui-theme/src') },
-      { find: '@ccui/shared/components', replacement: resolve(__dirname, '../ui') },
+      {
+        find: '@ccui/shared/components',
+        replacement: resolve(__dirname, '../ui')
+      },
       { find: '@ccui', replacement: resolve(__dirname, '../ui') },
-      { find: 'vue-ccui', replacement: resolve(__dirname, '../ui') },
-    ],
+      { find: 'vue-ccui', replacement: resolve(__dirname, '../ui') }
+    ]
   },
   plugins: [vueJsx(), svgLoader(), MdTransformer()],
   optimizeDeps: {

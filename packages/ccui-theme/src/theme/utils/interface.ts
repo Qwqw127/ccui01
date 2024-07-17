@@ -9,7 +9,7 @@ export interface IContextService {
 }
 
 export interface IEventBus {
-  add(eventName: string, callbacks: Function): void;
-  remove(eventName: string, callbacks: Function): void;
+  add(eventName: string, callbacks: () => void): void;
+  remove(eventName: string, callbacks: () => void): void;
   trigger(eventName: string, data: any): void;
 }

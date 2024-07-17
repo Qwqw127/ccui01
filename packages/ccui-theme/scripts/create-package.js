@@ -10,5 +10,9 @@ exports.createPackage = async (name, version, outputDir) => {
     "style": "style.css"
   }`;
 
-  await fsExtra.outputFile(path.resolve(outputDir, 'package.json'), fileStr, 'utf8');
+  await fsExtra.outputFile(
+    path.resolve(outputDir, 'package.json'),
+    fileStr,
+    'utf8'
+  );
 };

@@ -1,6 +1,9 @@
 //阴影变量
 
-$ccui-shadow-length-base: var(--ccui-shadow-length-base, 0 2px 6px 0); //直接铺陈在页面上方的元素 (card等)
+$ccui-shadow-length-base: var(
+  --ccui-shadow-length-base,
+  0 2px 6px 0
+); //直接铺陈在页面上方的元素 (card等)
 
 $ccui-shadow-length-slide-left: var(
   --ccui-shadow-length-slide-left,
@@ -15,7 +18,10 @@ $ccui-shadow-length-connected-overlay: var(
   0 2px 12px 0
 ); //有连接点的弹出(覆盖)层 (DatePicker Cascader Select TagsInput Pagination的下拉菜单等)
 
-$ccui-shadow-length-hover: var(--ccui-shadow-length-hover, 0 8px 16px 0); //涉及到hover的地方
+$ccui-shadow-length-hover: var(
+  --ccui-shadow-length-hover,
+  0 8px 16px 0
+); //涉及到hover的地方
 $ccui-shadow-length-feedback-overlay: var(
   --ccui-shadow-length-feedback-overlay,
   0 4px 16px 0

@@ -34,9 +34,12 @@ body[ui-theme='galaxy-theme'] {
 
   // TODO: 表单底层统一使用一致的input，全局修改该input尺寸默认值即可
   // input default size change to '32px'
-  d-multi-auto-complete .multi-auto-complete label.multiple-label-auto-complete ul.ccui-dropdown-origin {
-    padding: 3px 2px 0 2px;
+  d-multi-auto-complete
+    .multi-auto-complete
+    label.multiple-label-auto-complete
+    ul.ccui-dropdown-origin {
     min-height: 32px;
+    padding: 3px 2px 0 2px;
   }
 
   d-search .ccui-search {
@@ -77,10 +80,13 @@ body[ui-theme='galaxy-theme'] {
   }
 
   d-tree-select {
-    .ccui-tree-select .popper .popper-activator .ccui-select-input.ccui-tree-select-input {
-      padding: 4px 10px;
+    .ccui-tree-select
+      .popper
+      .popper-activator
+      .ccui-select-input.ccui-tree-select-input {
       min-height: 32px;
       max-height: 64px;
+      padding: 4px 10px;
     }
   }
 
@@ -178,7 +184,9 @@ body[ui-theme='galaxy-theme'] {
     }
   }
 
-  div.popper-container div.popper-container-scrollable div.ccui-tree-select.ccui-options-container {
+  div.popper-container
+    div.popper-container-scrollable
+    div.ccui-tree-select.ccui-options-container {
     padding: 12px;
   }
 
@@ -202,25 +210,25 @@ body[ui-theme='galaxy-theme'] {
       span:hover,
       a:focus,
       span:focus {
-        background-color: transparent !important;
         color: $ccui-text !important;
+        background-color: transparent !important;
         border: 1px solid $ccui-dividing-line !important;
         box-shadow: 0 1px 3px 0 $ccui-light-shadow !important;
       }
 
       a:active {
-        background-color: transparent !important;
         color: $ccui-text !important;
+        background-color: transparent !important;
       }
 
       &.active a {
-        background-color: $ccui-primary !important;
         color: $ccui-light-text !important;
         cursor: pointer !important;
+        background-color: $ccui-primary !important;
 
         &:hover {
-          background-color: $ccui-primary !important;
           color: $ccui-light-text !important;
+          background-color: $ccui-primary !important;
           border: 1px solid transparent !important;
           box-shadow: none !important;
         }
@@ -236,27 +244,27 @@ body[ui-theme='galaxy-theme'] {
     }
 
     ul.ccui-pagination-list > li > a {
-      height: 28px !important;
-      min-width: 28px !important;
-      padding: 0 4px !important;
       justify-content: center !important;
+      min-width: 28px !important;
+      height: 28px !important;
+      padding: 0 4px !important;
       border: 1px solid transparent !important;
     }
 
     ul.ccui-pagination-sm > li > a {
-      height: 24px !important;
       min-width: 24px !important;
+      height: 24px !important;
     }
 
     ul.ccui-pagination-lg > li > a {
-      height: 40px !important;
       min-width: 40px !important;
+      height: 40px !important;
     }
 
     .ccui-pagination-list > li:first-child > a,
     .ccui-pagination-list > li:last-child > a {
-      padding: 0 !important;
       height: 28px !important;
+      padding: 0 !important;
       line-height: 28px !important;
     }
 

@@ -24,6 +24,7 @@ module.exports = {
   },
   plugins: ['vue', '@typescript-eslint', 'prettier'],
   rules: {
+    'no-const-assign': 'off',
     'prettier/prettier': 'error',
     'no-useless-constructor': 'off',
     'no-useless-concat': 'off',
@@ -67,11 +68,12 @@ module.exports = {
         ]
       }
     ],
+    'prefer-rest-params': 'off',
     'no-multiple-empty-lines': 'error',
     'no-shadow': 'off',
     'no-trailing-spaces': 'error',
     'no-unused-labels': 'error',
-    'no-use-before-define': 'error',
+    'no-use-before-define': 'off',
     'no-var': 'error',
     'prefer-const': 'error',
     semi: 'error',

@@ -1,49 +1,46 @@
-import nav from './nav';
-import markdown from './markdown';
-import sidebar from './sidebar';
+import { defineConfig } from 'vitepress'
+import sidebar from './sidebar'
+import head from './head'
+import nav from './nav'
+import markdown from './markdown'
+import lang from './lang'
 
-export default ({ mode }) => {
-  const basePath = mode === 'development' ? '/' : '/ccui01/';
-
-  return {
-    base: basePath,
-    lang: 'en-ZH',
-    title: 'vue3-ccui01',
-    description: 'vue3-ccui01 组件库',
-    lastUpdated: true,
-    ignoreDeadLinks: true, // 忽略死链接
-    head: [
-      // 这里的路径没有被自动更改 手动更改路径
-      [
-        'link',
-        { rel: 'icon', type: 'image/svg+xml', href: `${basePath}logo.svg` }
-      ],
-      [
-        'link',
-        {
-          rel: 'stylesheet',
-          href: 'https://unpkg.com/vue3-ccui01/theme/darkTheme.css'
-        }
-      ]
-    ],
-    markdown,
-    themeConfig: {
-      sidebar,
-      nav,
-      logo: '/logo.svg',
-      algolia: {
-        appId: 'K0NNJA38K6',
-        apiKey: '0b6d20552d2073390d2bbb0a84fb49dd',
-        indexName: 'ccui'
-      },
-      socialLinks: [
-        { icon: 'github', link: 'https://github.com/Qwqw127/ccui01' }
-      ],
-      outlineTitle: '快速前往',
-      footer: {
-        message: 'Released under the MIT License.',
-        copyright: 'Copyright © 2022-present vaebe'
-      }
+const config = defineConfig({
+  title: 'Vue DevUI',
+  description: 'Vue DevUI 组件库',
+  head,
+  markdown,
+  locales: {
+    '/': {
+      lang: 'zh-CN',
+      label: '简体中文'
+    },
+    '/en-US': {
+      lang: 'en-US',
+      label: 'English'
     }
-  };
-};
+  },
+  themeConfig: {
+    sidebar,
+    nav,
+    // demoblock: lang,
+    logo: '../../assets/logo.svg',
+    // locales: {
+    //   '/': {
+    //     lang: 'zh-CN',
+    //     label: '简体中文'
+    //   },
+    //   '/en-US': {
+    //     lang: 'en-US',
+    //     label: 'English'
+    //   }
+    // },
+    algolia: {
+      appId: 'HOQD3NUZNM',
+      apiKey: '07456b4a262e8c84eb892088e5cc3791',
+      indexName: 'vue-devui'
+    }
+  }
+})
+
+export default config

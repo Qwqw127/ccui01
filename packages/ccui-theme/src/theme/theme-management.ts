@@ -35,18 +35,20 @@ export function ThemeServiceInit(
 
   window[THEME_KEY.themeCollection] = themes || {
     'ccui-light-theme': ccuiLightTheme,
-    'ccui-dark-theme': ccuiDarkTheme,
+    'ccui-dark-theme': ccuiDarkTheme
   };
   window[THEME_KEY.currentTheme] = defaultThemeName || 'ccui-light-theme';
   const eventBus = window['globalEventBus'] || new EventBus(); // window.globalEventBus 为 框架的事件总线
   const themeService = new ThemeService(eventBus);
   window[THEME_KEY.themeService] = themeService;
 
-  themeService.setExtraData(extraData || {
-    'ccui-dark-theme': {
-      appendClasses: ['dark-mode']
+  themeService.setExtraData(
+    extraData || {
+      'ccui-dark-theme': {
+        appendClasses: ['dark-mode']
+      }
     }
-  });
+  );
   themeService.initializeTheme(null, allowDynamicTheme);
   if (ieSupport) {
     ieSupportCssVar();
@@ -54,18 +56,29 @@ export function ThemeServiceInit(
   return themeService;
 }
 
-export function ThemeServiceFollowSystemOn(themeConfig?: { lightThemeName: string; darkThemeName: string }): Subscription {
+export function ThemeServiceFollowSystemOn(themeConfig?: {
+  lightThemeName: string;
+  darkThemeName: string;
+}): Subscription {
   if (typeof window === 'undefined') {
     return null;
   }
 
   const themeService: ThemeService = window[THEME_KEY.themeService];
   themeService.registerMediaQuery();
-  return themeService.mediaQuery.prefersColorSchemeChange.subscribe(value => {
+  return themeService.mediaQuery.prefersColorSchemeChange.subscribe((value) => {
     if (value === 'dark') {
-      themeService.applyTheme(window[THEME_KEY.themeCollection][themeConfig && themeConfig.darkThemeName || 'ccui-dark-theme']);
+      themeService.applyTheme(
+        window[THEME_KEY.themeCollection][
+          (themeConfig && themeConfig.darkThemeName) || 'ccui-dark-theme'
+        ]
+      );
     } else {
-      themeService.applyTheme(window[THEME_KEY.themeCollection][themeConfig && themeConfig.lightThemeName || 'ccui-light-theme']);
+      themeService.applyTheme(
+        window[THEME_KEY.themeCollection][
+          (themeConfig && themeConfig.lightThemeName) || 'ccui-light-theme'
+        ]
+      );
     }
   });
 }
@@ -86,8 +99,11 @@ export function ieSupportCssVar() {
     return null;
   }
 
-  const isNativeSupport = window['CSS'] && CSS.supports && CSS.supports('(--a: 0)') || false;
-  if (isNativeSupport) { return; }
+  const isNativeSupport =
+    (window['CSS'] && CSS.supports && CSS.supports('(--a: 0)')) || false;
+  if (isNativeSupport) {
+    return;
+  }
   cssVars({ watch: true, silent: true });
   const observer = new MutationObserver(function (mutations) {
     mutations.forEach(function (mutation) {
@@ -96,9 +112,15 @@ export function ieSupportCssVar() {
     });
   });
 
-  const config = { attributes: true, attributeFilter: [THEME_KEY.uiThemeAttributeName] };
+  const config = {
+    attributes: true,
+    attributeFilter: [THEME_KEY.uiThemeAttributeName]
+  };
 
-  observer.observe(document.querySelector(`#${THEME_KEY.styleElementId}`), config);
+  observer.observe(
+    document.querySelector(`#${THEME_KEY.styleElementId}`),
+    config
+  );
 }
 
 // TODO: management should handle add / remove theme from theme collection.

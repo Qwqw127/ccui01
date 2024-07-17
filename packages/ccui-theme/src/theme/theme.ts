@@ -11,13 +11,15 @@ export class Theme {
   isDark?: boolean;
   isPreview?: boolean;
   isExtendable?: boolean;
-  extra?: {
-    appendClass?: Array<string>;
-    cssVariables?: {
-      [cssVarName: string]: string;
-    };
-    [prop: string]: any;
-  } | any;
+  extra?:
+    | {
+        appendClass?: Array<string>;
+        cssVariables?: {
+          [cssVarName: string]: string;
+        };
+        [prop: string]: any;
+      }
+    | any;
 
   constructor(theme: {
     id: ThemeId;

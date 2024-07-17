@@ -24,8 +24,14 @@ async function copyStylesVar() {
   await shelljs.cp('-R', stylesVarPath, outputDir);
 }
 
-const extendThemePath = path.resolve(__dirname, '../src/theme-collection/extend-theme.scss');
-const extendThemeVuePath = path.resolve(__dirname, '../src/theme-collection/extend-theme-vue.scss');
+const extendThemePath = path.resolve(
+  __dirname,
+  '../src/theme-collection/extend-theme.scss'
+);
+const extendThemeVuePath = path.resolve(
+  __dirname,
+  '../src/theme-collection/extend-theme-vue.scss'
+);
 async function copyExtendTheme() {
   const extendThemeDir = path.resolve(__dirname, '../build/theme-collection');
   await shelljs.mkdir(extendThemeDir);
@@ -35,17 +41,37 @@ async function copyExtendTheme() {
 
 const typingsPath = path.resolve(__dirname, '../typings');
 const typingsThemePath = path.resolve(typingsPath, 'theme/*');
-const typingsCollectionThemePath = path.resolve(typingsPath, 'theme-collection/*');
+const typingsCollectionThemePath = path.resolve(
+  typingsPath,
+  'theme-collection/*'
+);
 async function copyTypings() {
-  const themePublicApi = fs.readFileSync(path.resolve(typingsPath, 'theme/public-api.d.ts'), 'utf8');
-  const themeCollectionPublicApi = fs.readFileSync(path.resolve(typingsPath, 'theme-collection/public-api.d.ts'), 'utf8');
-  let extendThemeContent = fs.readFileSync(path.resolve(typingsPath, 'theme-collection/extend-theme.d.ts'), 'utf8');
+  const themePublicApi = fs.readFileSync(
+    path.resolve(typingsPath, 'theme/public-api.d.ts'),
+    'utf8'
+  );
+  const themeCollectionPublicApi = fs.readFileSync(
+    path.resolve(typingsPath, 'theme-collection/public-api.d.ts'),
+    'utf8'
+  );
+  let extendThemeContent = fs.readFileSync(
+    path.resolve(typingsPath, 'theme-collection/extend-theme.d.ts'),
+    'utf8'
+  );
   extendThemeContent = extendThemeContent.replace('../', './');
 
   await shelljs.cp('-R', typingsThemePath, outputDir);
   await shelljs.cp('-R', typingsCollectionThemePath, outputDir);
-  fsExtra.outputFileSync(path.resolve(outputDir, 'public-api.d.ts'), `${themePublicApi}${themeCollectionPublicApi}`, 'utf8');
-  fsExtra.outputFileSync(path.resolve(outputDir, 'extend-theme.d.ts'), extendThemeContent, 'utf8');
+  fsExtra.outputFileSync(
+    path.resolve(outputDir, 'public-api.d.ts'),
+    `${themePublicApi}${themeCollectionPublicApi}`,
+    'utf8'
+  );
+  fsExtra.outputFileSync(
+    path.resolve(outputDir, 'extend-theme.d.ts'),
+    extendThemeContent,
+    'utf8'
+  );
   await shelljs.rm('-rf', typingsPath);
 }
 

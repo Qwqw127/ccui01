@@ -30,7 +30,7 @@ function poll() {
   }, 16);
 }
 
-const docsearch$ = docsearch.default ?? docsearch;
+const docsearch$ = docsearch;
 type DocSearchProps = Parameters<typeof docsearch$>[0];
 
 function initialize(userOptions: DefaultTheme.AlgoliaSearchOptions) {
@@ -38,11 +38,16 @@ function initialize(userOptions: DefaultTheme.AlgoliaSearchOptions) {
   // doesn't support multiple locales as of now.
   const options = Object.assign<{}, {}, DocSearchProps>({}, userOptions, {
     container: '#docsearch',
+    appId: 'HOQD3NUZNM',
+    apiKey: '07456b4a262e8c84eb892088e5cc3791',
+    indexName: 'vue-devui',
 
     navigator: {
       navigate({ itemUrl }) {
         const _itemUrl = itemUrl.replaceAll('//', '/');
-        const { pathname: hitPathname } = new URL(window.location.origin + _itemUrl);
+        const { pathname: hitPathname } = new URL(
+          window.location.origin + _itemUrl
+        );
 
         // router doesn't handle same-page navigation so we use the native
         // browser location API for anchor navigation
@@ -51,18 +56,17 @@ function initialize(userOptions: DefaultTheme.AlgoliaSearchOptions) {
         } else {
           router.go(_itemUrl);
         }
-      },
+      }
     },
 
     transformItems(items) {
       return items.map((item) => {
         return Object.assign({}, item, {
-          url: getRelativePath(item.url),
+          url: getRelativePath(item.url)
         });
       });
     },
 
-    // @ts-expect-error vue-tsc thinks this should return Vue JSX but it returns the required React one
     hitComponent({ hit, children }) {
       return {
         __v: null,
@@ -70,9 +74,9 @@ function initialize(userOptions: DefaultTheme.AlgoliaSearchOptions) {
         ref: undefined,
         constructor: undefined,
         key: undefined,
-        props: { href: hit.url, children },
+        props: { href: hit.url, children }
       };
-    },
+    }
   });
 
   docsearch$(options);
@@ -80,7 +84,12 @@ function initialize(userOptions: DefaultTheme.AlgoliaSearchOptions) {
 
 function getRelativePath(absoluteUrl: string) {
   const { pathname, hash } = new URL(absoluteUrl);
-  return pathname.replace(/\.html$/, site.value.cleanUrls === 'disabled' ? '.html' : '') + hash;
+  return (
+    pathname.replace(
+      /\.html$/,
+      site.value.cleanUrls === 'disabled' ? '.html' : ''
+    ) + hash
+  );
 }
 </script>
 
@@ -95,14 +104,17 @@ function getRelativePath(absoluteUrl: string) {
 
   --docsearch-primary-color: var(--c-brand);
   --docsearch-highlight-color: var(--ccui-brand);
-  --docsearch-searchbox-shadow: inset 0 0 0 1px var(--ccui-form-control-line-active);
+  --docsearch-searchbox-shadow: inset 0 0 0 1px
+    var(--ccui-form-control-line-active);
   --docsearch-text-color: var(--ccui-text);
   --docsearch-muted-color: var(--ccui-text);
   --docsearch-searchbox-background: var(--ccui-global-bg);
 
   --docsearch-modal-background: var(--ccui-global-bg-normal);
   --docsearch-footer-background: var(--ccui-global-bg);
-  --docsearch-searchbox-focus-background: var(--ccui-gray-form-control-hover-bg);
+  --docsearch-searchbox-focus-background: var(
+    --ccui-gray-form-control-hover-bg
+  );
   --docsearch-hit-background: var(--ccui-default-bg);
   --docsearch-footer-shadow: '';
   --docsearch-hit-shadow: '';
