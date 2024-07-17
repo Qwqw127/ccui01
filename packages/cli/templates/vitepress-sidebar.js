@@ -13,7 +13,8 @@ const logger = require('../shared/logger');
 // }
 
 function buildCategoryOptions(text, items = []) {
-  return { text, items };
+  // 自定义sidebar,使用children渲染子项
+  return { text, children: items };
 }
 
 function generateZhMenus(componentsInfo) {
