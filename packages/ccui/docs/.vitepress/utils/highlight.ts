@@ -32,9 +32,12 @@ const highlight = (str, lang) => {
   if (!prism.languages[lang]) {
     try {
       loadLanguages([lang]);
-    }
-    catch (e) {
-      console.warn(chalk.yellow(`[vitepress] Syntax highlight for language "${lang}" is not supported.`));
+    } catch (e) {
+      console.warn(
+        chalk.yellow(
+          `[vitepress] Syntax highlight for language "${lang}" is not supported.`
+        )
+      );
     }
   }
   if (prism.languages[lang]) {

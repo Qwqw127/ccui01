@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { ref, computed, watch, defineAsyncComponent, onMounted, onUpdated } from 'vue';
+import {
+  ref,
+  computed,
+  watch,
+  defineAsyncComponent,
+  onMounted,
+  onUpdated
+} from 'vue';
 import { useRoute, useData, useRouter } from 'vitepress';
 import { isSideBarEmpty, getSideBarConfig } from './support/sideBar';
 // components
@@ -16,11 +23,9 @@ const Home = defineAsyncComponent(() => import('./components/Home.vue'));
 
 const NoopComponent = () => null;
 
-const __BSA__ = false;
-
-const CarbonAds = __CARBON__ ? defineAsyncComponent(() => import('./components/CarbonAds.vue')) : NoopComponent;
-const BuySellAds = __BSA__ ? defineAsyncComponent(() => import('./components/BuySellAds.vue')) : NoopComponent;
-const AlgoliaSearchBox = __ALGOLIA__ ? defineAsyncComponent(() => import('./components/AlgoliaSearchBox.vue')) : NoopComponent;
+const AlgoliaSearchBox = __ALGOLIA__
+  ? defineAsyncComponent(() => import('./components/AlgoliaSearchBox.vue'))
+  : NoopComponent;
 
 // generic state
 const route = useRoute();
@@ -33,7 +38,9 @@ const isCustomLayout = computed(() => !!frontmatter.value.customLayout);
 const enableHome = computed(() => !!frontmatter.value.home);
 
 // automatic multilang check for AlgoliaSearchBox
-const isMultiLang = computed(() => Object.keys(theme.value.locales || {}).length > 0);
+const isMultiLang = computed(
+  () => Object.keys(theme.value.locales || {}).length > 0
+);
 
 // navbar
 const showNavbar = computed(() => {
@@ -41,7 +48,9 @@ const showNavbar = computed(() => {
   if (frontmatter.value.navbar === false || themeConfig.navbar === false) {
     return false;
   }
-  return site.value.title || themeConfig.logo || themeConfig.repo || themeConfig.nav;
+  return (
+    site.value.title || themeConfig.logo || themeConfig.repo || themeConfig.nav
+  );
 });
 
 // sidebar
@@ -52,7 +61,9 @@ const showSidebar = computed(() => {
     return false;
   }
 
-  return !isSideBarEmpty(getSideBarConfig(theme.value.sidebar, route.data.relativePath));
+  return !isSideBarEmpty(
+    getSideBarConfig(theme.value.sidebar, route.data.relativePath)
+  );
 });
 
 const toggleSidebar = (to?: boolean) => {
@@ -71,15 +82,15 @@ const pageClasses = computed(() => {
     {
       'no-navbar': !showNavbar.value,
       'sidebar-open': openSideBar.value,
-      'no-sidebar': !showSidebar.value,
-    },
+      'no-sidebar': !showSidebar.value
+    }
   ];
 });
 const homeContainerClass = computed(() => {
   return [
     {
-      'home-page-bg': enableHome.value,
-    },
+      'home-page-bg': enableHome.value
+    }
   ];
 });
 const initLanguageConfig = () => {
@@ -97,12 +108,14 @@ const initLanguageConfig = () => {
 
 // Remove `__VP_STATIC_START__`
 const removeVPStaticFlag = () => {
-  const contentChildNodes = document.querySelector('.content > div')?.childNodes;
+  const contentChildNodes =
+    document.querySelector('.content > div')?.childNodes;
 
   contentChildNodes?.forEach((item, index) => {
     if (
       (index === 0 && item.textContent === '__VP_STATIC_START__') ||
-      (index === contentChildNodes.length - 1 && item.textContent === '__VP_STATIC_END__')
+      (index === contentChildNodes.length - 1 &&
+        item.textContent === '__VP_STATIC_END__')
     ) {
       item.remove();
     }
@@ -149,14 +162,19 @@ const contributors = computed(() => {
       <div class="theme" :class="pageClasses">
         <NavBar v-if="showNavbar" @toggle="toggleSidebar">
           <template #search>
-            <slot name="navbar-search"> </slot>
+            <slot name="navbar-search"></slot>
           </template>
         </NavBar>
 
         <SideBar :open="openSideBar">
           <template #sidebar-top>
             <slot name="sidebar-top" />
-            <AlgoliaSearchBox v-if="theme.algolia" :options="theme.algolia" :multilang="isMultiLang" :key="site.lang" />
+            <AlgoliaSearchBox
+              v-if="theme.algolia"
+              :options="theme.algolia"
+              :multilang="isMultiLang"
+              :key="site.lang"
+            />
           </template>
           <template #sidebar-bottom>
             <slot name="sidebar-bottom" />
@@ -182,8 +200,15 @@ const contributors = computed(() => {
         <Page v-else>
           <template #top>
             <slot name="page-top-ads">
-              <div id="ads-container" v-if="theme.carbonAds && theme.carbonAds.carbon">
-                <CarbonAds :key="'carbon' + page.relativePath" :code="theme.carbonAds.carbon" :placement="theme.carbonAds.placement" />
+              <div
+                id="ads-container"
+                v-if="theme.carbonAds && theme.carbonAds.carbon"
+              >
+                <CarbonAds
+                  :key="'carbon' + page.relativePath"
+                  :code="theme.carbonAds.carbon"
+                  :placement="theme.carbonAds.placement"
+                />
               </div>
             </slot>
             <slot name="page-top" />
@@ -201,18 +226,7 @@ const contributors = computed(() => {
           </template>
         </Page>
       </div>
-
-      <div class="container-contributors" v-if="enableHome">
-        <div class="contributors-inner">
-          <h2>✨贡献者✨</h2>
-          <PageContributor v-if="contributors && contributors.length > 0" :contributors="contributors" :spacing="20" :avatarSize="48" />
-          <a href="/contributing/"><Button class="btn-become-contributor" variant="solid" color="primary">成为贡献者</Button></a>
-        </div>
-      </div>
     </div>
-
-    <DevuiFooter class="footer" v-if="enableHome" />
-    <!-- <Debug v-if="false" /> -->
   </div>
 </template>
 
