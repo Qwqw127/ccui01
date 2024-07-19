@@ -3,10 +3,17 @@ import { ref, computed } from 'vue';
 import { useToc } from '../composables/useToc';
 import { useActiveSidebarLinks } from '../composables/activeBar';
 import { CURRENT_LANG, ZH_CN } from '../const';
+import { useData } from 'vitepress';
 
 const headers = useToc();
 const marker = ref();
 const container = ref();
+
+const { page } = useData()
+
+console.log(page);
+
+
 // 滚动监听
 useActiveSidebarLinks(container, marker);
 const forwardText = computed(() => {

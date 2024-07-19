@@ -31,5 +31,10 @@ export default defineConfig({
       '@floating-ui/dom',
       'vue-router'
     ]
-  }
+  },
+  server: {
+    fs: {
+      strict: false,
+    },
+  },
 });

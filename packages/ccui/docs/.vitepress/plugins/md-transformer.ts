@@ -15,7 +15,7 @@ export function MdTransformer(): Plugin {
       const setup = markdownStringArray.some(hasDemoBlock)
         ? `
 <script setup lang="ts">
-const demoList = import.meta.globEager('../../components/${componentName}/*.vue') ?? []
+const demoList = import.meta.glob('../../components/${componentName}/*.vue') ?? []
 </script>
       `
         : '';

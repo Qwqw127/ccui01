@@ -1,4 +1,4 @@
-import { computed } from 'vue'
+import { computed, unref } from 'vue'
 import { useData } from 'vitepress'
 import { joinUrl } from '../utils'
 

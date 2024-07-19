@@ -1,4 +1,4 @@
-// import Theme from 'vitepress/theme';
+import Theme2 from 'vitepress/theme';
 // 将theme修改为自定义主题
 import Theme from '../ccui-theme';
 import './styles/index.scss';
@@ -8,6 +8,7 @@ import { useComponents } from "./useComponents";
 import vue_ui from '../../../ui/vue-ccui';
 
 export default {
+  // ...Theme2,
   ...Theme,
   enhanceApp({ app }) {
     app.use(vue_ui);

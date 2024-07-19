@@ -197,34 +197,7 @@ const contributors = computed(() => {
           </template>
         </Home>
 
-        <Page v-else>
-          <template #top>
-            <slot name="page-top-ads">
-              <div
-                id="ads-container"
-                v-if="theme.carbonAds && theme.carbonAds.carbon"
-              >
-                <CarbonAds
-                  :key="'carbon' + page.relativePath"
-                  :code="theme.carbonAds.carbon"
-                  :placement="theme.carbonAds.placement"
-                />
-              </div>
-            </slot>
-            <slot name="page-top" />
-          </template>
-          <template #bottom>
-            <slot name="page-bottom" />
-            <slot name="page-bottom-ads">
-              <BuySellAds
-                v-if="theme.carbonAds && theme.carbonAds.custom"
-                :key="'custom' + page.relativePath"
-                :code="theme.carbonAds.custom"
-                :placement="theme.carbonAds.placement"
-              />
-            </slot>
-          </template>
-        </Page>
+        <Page v-else></Page>
       </div>
     </div>
   </div>
