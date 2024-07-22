@@ -1,33 +1,36 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { watch, ref } from 'vue';
 import { useRoute } from 'vitepress';
 import PageFooter from './PageFooter.vue';
 import NextAndPrevLinks from './NextAndPrevLinks.vue';
 import PageToc from './PageToc.vue';
 import BackToTop from './BackToTop.vue';
-import DevuiFooter from './DevuiFooter.vue';
 
-const isComponents = computed(() => useRoute().path.indexOf('components') > -1);
-
-
+const route = useRoute();
+// const isComponents = computed(() => route.path.indexOf('components') > -1);
+const isComponents = ref(false);
+watch(
+  () => route.path,
+  (v) => {
+    isComponents.value = v.indexOf('components') > -1;
+  },
+  {
+    immediate: true
+  }
+);
 </script>
 
 <template>
   <main class="page">
     <div class="container">
-      <slot name="top" />
-
-      <Content class="content" />
-
+      <!-- 扩展原有主题，需在Content组件上添加默认主题的class vp-doc -->
+       <!-- 或者 将相关丢失的样式 添加到现在的主题上 -->
+      <Content class="content " />
       <PageFooter />
       <NextAndPrevLinks />
-
-      <slot name="bottom" />
       <BackToTop />
       <PageToc v-if="isComponents" class="toc-warpper" />
     </div>
-
-    <!-- <DevuiFooter /> -->
   </main>
 </template>
 

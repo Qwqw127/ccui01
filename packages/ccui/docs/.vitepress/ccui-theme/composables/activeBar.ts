@@ -59,6 +59,8 @@ export function useActiveSidebarLinks(
   function activateLink(hash: string) {
     deactiveLink(prevActiveLink)
 
+    // 做空 container的判断 todo:为什么会出现为空的情况
+    if(!container.value) return
     const activeLink = (prevActiveLink =
       hash == null
         ? null

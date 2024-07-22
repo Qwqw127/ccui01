@@ -13,10 +13,7 @@ import { isSideBarEmpty, getSideBarConfig } from './support/sideBar';
 import NavBar from './components/NavBar.vue';
 import SideBar from './components/SideBar.vue';
 import Page from './components/Page.vue';
-import DevuiFooter from './components/DevuiFooter.vue';
 import { CONTRIBUTORS_MAP } from './components/PageContributorConfig';
-import PageContributor from './components/PageContributor.vue';
-import { Button } from '../../../ui/button';
 import { LANG_KEY, ZH_CN, EN_US } from './const';
 
 const Home = defineAsyncComponent(() => import('./components/Home.vue'));
@@ -29,7 +26,7 @@ const AlgoliaSearchBox = __ALGOLIA__
 
 // generic state
 const route = useRoute();
-const { site, page, theme, frontmatter } = useData();
+const { site, theme, frontmatter } = useData();
 const router = useRouter();
 
 // custom layout
@@ -151,9 +148,6 @@ function unique(arr) {
   return array;
 }
 
-const contributors = computed(() => {
-  return unique(Object.values(CONTRIBUTORS_MAP).flat());
-});
 </script>
 
 <template>
@@ -197,7 +191,7 @@ const contributors = computed(() => {
           </template>
         </Home>
 
-        <Page v-else></Page>
+        <Page v-else/>
       </div>
     </div>
   </div>

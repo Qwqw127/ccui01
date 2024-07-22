@@ -1,17 +1,28 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-import { useToc } from '../composables/useToc';
+import { ref, computed ,shallowRef} from 'vue';
+import { useToc ,getHeaders} from '../composables/useToc';
 import { useActiveSidebarLinks } from '../composables/activeBar';
 import { CURRENT_LANG, ZH_CN } from '../const';
-import { useData } from 'vitepress';
+import { useData,onContentUpdated } from 'vitepress';
 
-const headers = useToc();
+// 通过useData()的方式获取 headers，需要在config的markdown字段中配置headers标注level
+// const headers = useToc();
 const marker = ref();
 const container = ref();
 
-const { page } = useData()
+const { page,frontmatter,theme } = useData()
 
-console.log(page);
+console.log(page.value.headers);
+
+const headers1 = shallowRef<any[]>([])
+
+// 使用querySelectorAll('.content :where(h1,h2,h3,h4,h5,h6)') 筛选出标题。
+onContentUpdated(() => {
+  console.log(6666)
+  console.log(frontmatter.value.outline);
+  // console.log(theme.value.outline); // 3
+  headers1.value = getHeaders(frontmatter.value.outline ?? theme.value.outline)
+})
 
 
 // 滚动监听
@@ -22,11 +33,11 @@ const forwardText = computed(() => {
 </script>
 
 <template>
-  <aside ref="container" v-if="headers?.length > 0">
+  <aside ref="container" v-if="headers1?.length > 0">
     <nav class="ccui-content-nav">
       <h3 class="ccui-fast-forward">{{ forwardText }}</h3>
       <ul class="ccui-step-nav">
-        <li v-for="{ link, text } in headers" :key="link" class="ccui-item">
+        <li v-for="{ link, text } in headers1" :key="link" class="ccui-item">
           <a class="ccui-link" :href="link" :title="text">{{ text }}</a>
         </li>
       </ul>

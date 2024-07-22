@@ -12,9 +12,9 @@ const logger = require('../shared/logger');
 //   return { text, link: `/${SITES_COMPONENTS_DIR_NAME}/${kebabCase(name)}/`, status }
 // }
 
-function buildCategoryOptions(text, items = []) {
-  // 自定义sidebar,使用children渲染子项
-  return { text, children: items };
+function buildCategoryOptions(text, children = []) {
+  // 自定义sidebar,使用children字段名渲染子项
+  return { text, children };
 }
 
 function generateZhMenus(componentsInfo) {
@@ -58,31 +58,29 @@ function generateEnMenus(componentsInfo) {
 exports.createVitepressSidebarTemplates = (componentsInfo = []) => {
   const rootNavs = [
     {
-      text: '快速开始',
-      link: '/',
+      rootItems: [
+        {
+          text: '快速开始',
+          link: '/quick-start/'
+        }
+      ],
       handler: generateZhMenus,
       lang: 'zh'
     },
     {
-      text: 'Quick Start',
-      link: '/en-US/',
+      rootItems: [
+        {
+          text: 'Quick Start',
+          link: '/en-US/quick-start/'
+        }
+      ],
       handler: generateEnMenus,
       lang: 'en'
     }
   ];
 
-  return rootNavs.map((nav) => {
-    const rootItem = {
-      text: nav.text,
-      link: nav.link,
-      items: [
-        {
-          text: '简介',
-          link: '/introduce'
-        }
-      ]
-    };
-    const sidebar = [].concat(rootItem, nav.handler(componentsInfo));
+  const templates = rootNavs.map((nav) => {
+    const sidebar = [].concat(...nav.rootItems, nav.handler(componentsInfo));
     return {
       lang: nav.lang,
       content: `\
@@ -92,4 +90,6 @@ exports.createVitepressSidebarTemplates = (componentsInfo = []) => {
       `
     };
   });
+
+  return templates;
 };

@@ -39,13 +39,11 @@ export const blockPlugin = (md: MarkdownIt) => {
           targetPath = path
             .join('../../components', `${filePathSuffix}.vue`)
             .replace(new RegExp(`\\${path.sep}`, 'gim'), '/');
-          console.log(1);
 
           if (pathExistsSync(filePath)) {
             demoName = path.basename(filePath, '.vue');
             content = fs.readFileSync(filePath, 'utf-8');
           }
-          console.log(2);
         }
         return `
           <demo

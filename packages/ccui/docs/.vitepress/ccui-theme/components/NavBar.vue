@@ -95,7 +95,7 @@ const switchLang = () => {
           <NavLinks />
         </div>
 
-        <div class="custom-nav flex items-center ml-l">
+        <!-- <div class="custom-nav flex items-center ml-l">
           <div class="custom-nav-item ml-m" style="font-size: 0"
             @click="() => useTranslation(defaultLanguage === ZH_CN ? EN_US : ZH_CN)" v-if="false">
             <ZhLang v-if="defaultLanguage === ZH_CN"></ZhLang>
@@ -115,7 +115,7 @@ const switchLang = () => {
               </path>
             </svg>
           </a>
-        </div>
+        </div> -->
       </div>
     </div>
   </header>
